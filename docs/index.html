@@ -1,977 +1,1160 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Programme B1-M2 - École IT</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap');
-        
-        body {
-            font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            background: linear-gradient(135deg, #fafbfc 0%, #f4f6f8 100%);
-            color: #1a1f2e;
-            line-height: 1.65;
-            letter-spacing: -0.01em;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            min-height: 100vh;
-            box-shadow: 
-                0 0 0 1px rgba(255, 255, 255, 0.1),
-                0 20px 80px rgba(0, 0, 0, 0.08),
-                0 8px 32px rgba(0, 0, 0, 0.04);
-            border-radius: 0;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(147, 51, 234, 0.08) 0%, rgba(59, 130, 246, 0.06) 100%);
-            border-radius: 50%;
-            transform: scale(1.5);
-        }
-        
-        .header::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
-        }
-        
-        .header h1 {
-            font-size: 3.5rem;
-            font-weight: 300;
-            margin-bottom: 16px;
-            letter-spacing: -0.03em;
-            position: relative;
-            z-index: 2;
-            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .header p {
-            font-size: 1.3rem;
-            opacity: 0.85;
-            font-weight: 300;
-            position: relative;
-            z-index: 2;
-            letter-spacing: -0.01em;
-            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
-        }
-        
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap");
+
+      body {
+        font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          system-ui, sans-serif;
+        background: linear-gradient(135deg, #fafbfc 0%, #f4f6f8 100%);
+        color: #1a1f2e;
+        line-height: 1.65;
+        letter-spacing: -0.01em;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        min-height: 100vh;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1),
+          0 20px 80px rgba(0, 0, 0, 0.08), 0 8px 32px rgba(0, 0, 0, 0.04);
+        border-radius: 0;
+      }
+
+      .header {
+        background: linear-gradient(
+          135deg,
+          #1e293b 0%,
+          #334155 50%,
+          #475569 100%
+        );
+        color: white;
+        padding: 80px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+
+      .header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(147, 51, 234, 0.08) 0%,
+          rgba(59, 130, 246, 0.06) 100%
+        );
+        border-radius: 50%;
+        transform: scale(1.5);
+      }
+
+      .header::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+            circle at 20% 30%,
+            rgba(139, 92, 246, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(59, 130, 246, 0.1) 0%,
+            transparent 50%
+          );
+      }
+
+      .header h1 {
+        font-size: 3.5rem;
+        font-weight: 300;
+        margin-bottom: 16px;
+        letter-spacing: -0.03em;
+        position: relative;
+        z-index: 2;
+        text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .header p {
+        font-size: 1.3rem;
+        opacity: 0.85;
+        font-weight: 300;
+        position: relative;
+        z-index: 2;
+        letter-spacing: -0.01em;
+        text-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .content {
+        padding: 100px 80px;
+      }
+
+      .section {
+        margin-bottom: 120px;
+        position: relative;
+      }
+
+      .section:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        bottom: -60px;
+        left: -80px;
+        right: -80px;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          #e2e8f0 20%,
+          #e2e8f0 80%,
+          transparent 100%
+        );
+      }
+
+      .section:last-child {
+        margin-bottom: 0;
+      }
+
+      .section-title {
+        font-size: 2.25rem;
+        color: #1e293b;
+        font-weight: 500;
+        margin-bottom: 50px;
+        letter-spacing: -0.02em;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        left: 0;
+        width: 80px;
+        height: 2px;
+        background: linear-gradient(90deg, #8b5cf6 0%, #3b82f6 100%);
+        border-radius: 1px;
+      }
+
+      .subsection {
+        margin-bottom: 50px;
+      }
+
+      .subsection:last-child {
+        margin-bottom: 0;
+      }
+
+      .subsection-title {
+        font-size: 1.4rem;
+        color: #374151;
+        font-weight: 500;
+        margin-bottom: 28px;
+        letter-spacing: -0.01em;
+      }
+
+      .text {
+        font-size: 1.1rem;
+        margin-bottom: 28px;
+        color: #4b5563;
+        line-height: 1.7;
+      }
+
+      .list {
+        list-style: none;
+        margin-bottom: 32px;
+      }
+
+      .list li {
+        font-size: 1.1rem;
+        margin-bottom: 18px;
+        padding-left: 28px;
+        position: relative;
+        color: #4b5563;
+        line-height: 1.7;
+      }
+
+      .list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 14px;
+        width: 3px;
+        height: 3px;
+        background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+        border-radius: 50%;
+      }
+
+      .highlight {
+        background: rgba(248, 250, 252, 0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 48px;
+        margin: 48px 0;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 24px;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04),
+          0 8px 40px rgba(0, 0, 0, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+      }
+
+      .highlight .title {
+        font-size: 1.5rem;
+        color: #1e293b;
+        font-weight: 500;
+        margin-bottom: 24px;
+        letter-spacing: -0.01em;
+      }
+
+      .formula {
+        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        color: white;
+        padding: 32px;
+        text-align: center;
+        font-family: "Geist Mono", "JetBrains Mono", "Courier New", monospace;
+        font-size: 1.15rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        margin: 32px 0;
+        border-radius: 20px;
+        box-shadow: 0 8px 40px rgba(30, 41, 59, 0.2),
+          0 4px 16px rgba(30, 41, 59, 0.15),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin: 40px 0;
+      }
+
+      .grid-item {
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05),
+          0 8px 32px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      }
+
+      .grid-item:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1),
+          0 20px 60px rgba(0, 0, 0, 0.12), 0 8px 32px rgba(0, 0, 0, 0.08),
+          inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        border-color: rgba(255, 255, 255, 0.4);
+        background: rgba(255, 255, 255, 0.85);
+      }
+
+      .grid-item .title {
+        font-size: 1.25rem;
+        color: #1e293b;
+        font-weight: 500;
+        margin-bottom: 24px;
+        letter-spacing: -0.01em;
+      }
+
+      .percentage {
+        display: inline-block;
+        background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+        color: white;
+        padding: 12px 20px;
+        font-weight: 600;
+        margin-right: 16px;
+        font-size: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3),
+          0 2px 8px rgba(59, 130, 246, 0.2),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .status {
+        display: inline-block;
+        padding: 10px 24px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        margin-top: 20px;
+        border-radius: 24px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04),
+          inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      }
+
+      .status.decided {
+        background: rgba(220, 252, 231, 0.8);
+        color: #166534;
+        border: 1px solid rgba(34, 197, 94, 0.2);
+      }
+
+      .to-define {
+        display: inline-flex;
+        align-items: center;
+        background: rgba(254, 243, 199, 0.8);
+        color: #92400e;
+        padding: 6px 16px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        margin-left: 16px;
+        border-radius: 20px;
+        border: 1px solid rgba(251, 191, 36, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04),
+          inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      }
+
+      .to-define::before {
+        content: "⚠";
+        margin-right: 6px;
+        font-size: 0.9rem;
+      }
+
+      .important {
+        background: rgba(254, 242, 242, 0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(254, 202, 202, 0.5);
+        padding: 32px;
+        margin: 32px 0;
+        border-radius: 20px;
+        box-shadow: 0 4px 20px rgba(239, 68, 68, 0.08),
+          0 2px 8px rgba(239, 68, 68, 0.04),
+          inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      }
+
+      .important .title {
+        color: #dc2626;
+        font-weight: 500;
+        margin-bottom: 16px;
+        font-size: 1.2rem;
+        letter-spacing: -0.01em;
+      }
+
+      .hackathon-detail {
+        background: rgba(254, 252, 232, 0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(253, 224, 71, 0.4);
+        border-radius: 28px;
+        padding: 40px;
+        margin: 40px 0;
+        box-shadow: 0 8px 40px rgba(245, 158, 11, 0.12),
+          0 4px 16px rgba(245, 158, 11, 0.08),
+          inset 0 1px 0 rgba(255, 255, 255, 0.7);
+      }
+
+      .hackathon-title {
+        font-size: 1.75rem;
+        color: #92400e;
+        font-weight: 600;
+        margin-bottom: 28px;
+        text-align: center;
+        letter-spacing: -0.02em;
+      }
+
+      .timeline {
+        position: relative;
+        margin: 30px 0;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 20px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(180deg, #8b5cf6 0%, #3b82f6 100%);
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 25px;
+        padding-left: 60px;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: 11px;
+        top: 10px;
+        width: 18px;
+        height: 18px;
+        background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+        border-radius: 50%;
+        border: 3px solid white;
+        box-shadow: 0 0 0 2px #e5e7eb, 0 4px 12px rgba(139, 92, 246, 0.25);
+      }
+
+      .timeline-day {
+        font-weight: 600;
+        color: #1e293b;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        letter-spacing: -0.01em;
+      }
+
+      .timeline-content {
+        color: #6b7280;
+        line-height: 1.6;
+      }
+
+      .evaluation-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        margin: 30px 0;
+      }
+
+      .evaluation-card {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 24px;
+        padding: 32px;
+        text-align: center;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04),
+          0 8px 32px rgba(0, 0, 0, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      }
+
+      .evaluation-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #8b5cf6 0%, #3b82f6 100%);
+        transform: scaleX(0);
+        transition: transform 0.5s ease;
+      }
+
+      .evaluation-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.02) 0%,
+          rgba(59, 130, 246, 0.02) 100%
+        );
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      .evaluation-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .evaluation-card:hover::after {
+        opacity: 1;
+      }
+
+      .evaluation-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08),
+          0 20px 60px rgba(0, 0, 0, 0.15), 0 8px 32px rgba(139, 92, 246, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        border-color: rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.95);
+      }
+
+      .evaluation-card h4 {
+        color: #1e293b;
+        margin-bottom: 20px;
+        font-size: 1.3rem;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+      }
+
+      .evaluation-percentage {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 16px;
+        text-shadow: 0 2px 4px rgba(139, 92, 246, 0.1);
+        filter: drop-shadow(0 2px 4px rgba(139, 92, 246, 0.1));
+      }
+
+      .footer {
+        background: rgba(248, 250, 252, 0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 60px 80px;
+        text-align: center;
+        color: #6b7280;
+        font-size: 0.95rem;
+        border-top: 1px solid rgba(229, 231, 235, 0.5);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      }
+
+      @media (max-width: 768px) {
         .content {
-            padding: 100px 80px;
+          padding: 60px 40px;
         }
-        
-        .section {
-            margin-bottom: 120px;
-            position: relative;
-        }
-        
-        .section:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            bottom: -60px;
-            left: -80px;
-            right: -80px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent 0%, #e2e8f0 20%, #e2e8f0 80%, transparent 100%);
-        }
-        
-        .section:last-child {
-            margin-bottom: 0;
-        }
-        
-        .section-title {
-            font-size: 2.25rem;
-            color: #1e293b;
-            font-weight: 500;
-            margin-bottom: 50px;
-            letter-spacing: -0.02em;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 0;
-            width: 80px;
-            height: 2px;
-            background: linear-gradient(90deg, #8b5cf6 0%, #3b82f6 100%);
-            border-radius: 1px;
-        }
-        
-        .subsection {
-            margin-bottom: 50px;
-        }
-        
-        .subsection:last-child {
-            margin-bottom: 0;
-        }
-        
-        .subsection-title {
-            font-size: 1.4rem;
-            color: #374151;
-            font-weight: 500;
-            margin-bottom: 28px;
-            letter-spacing: -0.01em;
-        }
-        
-        .text {
-            font-size: 1.1rem;
-            margin-bottom: 28px;
-            color: #4b5563;
-            line-height: 1.7;
-        }
-        
-        .list {
-            list-style: none;
-            margin-bottom: 32px;
-        }
-        
-        .list li {
-            font-size: 1.1rem;
-            margin-bottom: 18px;
-            padding-left: 28px;
-            position: relative;
-            color: #4b5563;
-            line-height: 1.7;
-        }
-        
-        .list li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 14px;
-            width: 3px;
-            height: 3px;
-            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
-            border-radius: 50%;
-        }
-        
-        .highlight {
-            background: rgba(248, 250, 252, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 48px;
-            margin: 48px 0;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 24px;
-            box-shadow: 
-                0 2px 20px rgba(0, 0, 0, 0.04),
-                0 8px 40px rgba(0, 0, 0, 0.02),
-                inset 0 1px 0 rgba(255, 255, 255, 0.7);
-        }
-        
-        .highlight .title {
-            font-size: 1.5rem;
-            color: #1e293b;
-            font-weight: 500;
-            margin-bottom: 24px;
-            letter-spacing: -0.01em;
-        }
-        
-        .formula {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-            color: white;
-            padding: 32px;
-            text-align: center;
-            font-family: 'Geist Mono', 'JetBrains Mono', 'Courier New', monospace;
-            font-size: 1.15rem;
-            font-weight: 500;
-            letter-spacing: 0.02em;
-            margin: 32px 0;
-            border-radius: 20px;
-            box-shadow: 
-                0 8px 40px rgba(30, 41, 59, 0.2),
-                0 4px 16px rgba(30, 41, 59, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin: 40px 0;
-        }
-        
-        .grid-item {
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 
-                0 1px 3px rgba(0, 0, 0, 0.05),
-                0 8px 32px rgba(0, 0, 0, 0.04),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
-        }
-        
-        .grid-item:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 
-                0 1px 3px rgba(0, 0, 0, 0.1),
-                0 20px 60px rgba(0, 0, 0, 0.12),
-                0 8px 32px rgba(0, 0, 0, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
-            border-color: rgba(255, 255, 255, 0.4);
-            background: rgba(255, 255, 255, 0.85);
-        }
-        
-        .grid-item .title {
-            font-size: 1.25rem;
-            color: #1e293b;
-            font-weight: 500;
-            margin-bottom: 24px;
-            letter-spacing: -0.01em;
-        }
-        
-        .percentage {
-            display: inline-block;
-            background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
-            color: white;
-            padding: 12px 20px;
-            font-weight: 600;
-            margin-right: 16px;
-            font-size: 1rem;
-            border-radius: 12px;
-            box-shadow: 
-                0 4px 20px rgba(139, 92, 246, 0.3),
-                0 2px 8px rgba(59, 130, 246, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-        }
-        
-        .status {
-            display: inline-block;
-            padding: 10px 24px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            margin-top: 20px;
-            border-radius: 24px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 
-                0 2px 8px rgba(0, 0, 0, 0.04),
-                inset 0 1px 0 rgba(255, 255, 255, 0.5);
-        }
-        
-        .status.decided {
-            background: rgba(220, 252, 231, 0.8);
-            color: #166534;
-            border: 1px solid rgba(34, 197, 94, 0.2);
-        }
-        
-        .to-define {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(254, 243, 199, 0.8);
-            color: #92400e;
-            padding: 6px 16px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-left: 16px;
-            border-radius: 20px;
-            border: 1px solid rgba(251, 191, 36, 0.2);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 
-                0 2px 8px rgba(0, 0, 0, 0.04),
-                inset 0 1px 0 rgba(255, 255, 255, 0.5);
-        }
-        
-        .to-define::before {
-            content: '⚠';
-            margin-right: 6px;
-            font-size: 0.9rem;
-        }
-        
-        .important {
-            background: rgba(254, 242, 242, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(254, 202, 202, 0.5);
-            padding: 32px;
-            margin: 32px 0;
-            border-radius: 20px;
-            box-shadow: 
-                0 4px 20px rgba(239, 68, 68, 0.08),
-                0 2px 8px rgba(239, 68, 68, 0.04),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
-        }
-        
-        .important .title {
-            color: #dc2626;
-            font-weight: 500;
-            margin-bottom: 16px;
-            font-size: 1.2rem;
-            letter-spacing: -0.01em;
-        }
-        
-        .hackathon-detail {
-            background: rgba(254, 252, 232, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(253, 224, 71, 0.4);
-            border-radius: 28px;
-            padding: 40px;
-            margin: 40px 0;
-            box-shadow: 
-                0 8px 40px rgba(245, 158, 11, 0.12),
-                0 4px 16px rgba(245, 158, 11, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.7);
-        }
-        
-        .hackathon-title {
-            font-size: 1.75rem;
-            color: #92400e;
-            font-weight: 600;
-            margin-bottom: 28px;
-            text-align: center;
-            letter-spacing: -0.02em;
-        }
-        
-        .timeline {
-            position: relative;
-            margin: 30px 0;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, #8b5cf6 0%, #3b82f6 100%);
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 25px;
-            padding-left: 60px;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 11px;
-            top: 10px;
-            width: 18px;
-            height: 18px;
-            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 0 0 2px #e5e7eb, 0 4px 12px rgba(139, 92, 246, 0.25);
-        }
-        
-        .timeline-day {
-            font-weight: 600;
-            color: #1e293b;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            letter-spacing: -0.01em;
-        }
-        
-        .timeline-content {
-            color: #6b7280;
-            line-height: 1.6;
-        }
-        
-        .evaluation-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
-        }
-        
-        .evaluation-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 24px;
-            padding: 32px;
-            text-align: center;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 
-                0 2px 16px rgba(0, 0, 0, 0.04),
-                0 8px 32px rgba(0, 0, 0, 0.02),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
-        }
-        
-        .evaluation-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #8b5cf6 0%, #3b82f6 100%);
-            transform: scaleX(0);
-            transition: transform 0.5s ease;
-        }
-        
-        .evaluation-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.02) 0%, rgba(59, 130, 246, 0.02) 100%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        
-        .evaluation-card:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .evaluation-card:hover::after {
-            opacity: 1;
-        }
-        
-        .evaluation-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 
-                0 4px 24px rgba(0, 0, 0, 0.08),
-                0 20px 60px rgba(0, 0, 0, 0.15),
-                0 8px 32px rgba(139, 92, 246, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.9);
-            border-color: rgba(255, 255, 255, 0.5);
-            background: rgba(255, 255, 255, 0.95);
-        }
-        
-        .evaluation-card h4 {
-            color: #1e293b;
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-            font-weight: 500;
-            letter-spacing: -0.01em;
-        }
-        
-        .evaluation-percentage {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 16px;
-            text-shadow: 0 2px 4px rgba(139, 92, 246, 0.1);
-            filter: drop-shadow(0 2px 4px rgba(139, 92, 246, 0.1));
-        }
-        
+
         .footer {
-            background: rgba(248, 250, 252, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 60px 80px;
-            text-align: center;
-            color: #6b7280;
-            font-size: 0.95rem;
-            border-top: 1px solid rgba(229, 231, 235, 0.5);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+          padding: 40px 30px;
         }
-        
-        @media (max-width: 768px) {
-            .content {
-                padding: 60px 40px;
-            }
-            
-            .footer {
-                padding: 40px 30px;
-            }
-            
-            .header h1 {
-                font-size: 2.5rem;
-            }
-            
-            .grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .evaluation-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .section:not(:last-child)::after {
-                left: -40px;
-                right: -40px;
-            }
+
+        .header h1 {
+          font-size: 2.5rem;
         }
+
+        .grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .evaluation-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section:not(:last-child)::after {
+          left: -40px;
+          right: -40px;
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="header">
-            <h1>Programme B1-M2</h1>
-            <p>École IT - Système d'évaluation et organisation pédagogique</p>
+      <div class="header">
+        <h1>Programme B1-M2</h1>
+        <p>École IT - Système d'évaluation et organisation pédagogique</p>
+      </div>
+
+      <div class="content">
+        <!-- STRUCTURE DU PROGRAMME -->
+        <div class="section">
+          <h2 class="section-title">Structure du programme</h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Organisation générale</h3>
+            <ul class="list">
+              <li>
+                5 années : B1 (Fondamentaux), B2 (Concepteur Développeur), B3
+                (DevOps/SysAdmin), M1, M2
+              </li>
+              <li>
+                3 unités d'enseignement par année avec structure standardisée
+              </li>
+              <li>
+                Format par unité : Cours techniques + 2 jours soft skills + 3
+                jours hackathon
+              </li>
+              <li>
+                Projets de fin d'unité intégrés pour coordonner les compétences
+                des matières de l'unité
+              </li>
+            </ul>
+          </div>
         </div>
-        
-        <div class="content">
-            <!-- STRUCTURE DU PROGRAMME -->
-            <div class="section">
-                <h2 class="section-title">Structure du programme</h2>
-                
-                <div class="subsection">
-                    <h3 class="subsection-title">Organisation générale</h3>
-                    <ul class="list">
-                        <li>5 années : B1 (Fondamentaux), B2 (Concepteur Développeur), B3 (DevOps/SysAdmin), M1, M2</li>
-                        <li>3 unités d'enseignement par année avec structure standardisée</li>
-                        <li>Format par unité : Cours techniques + 2 jours soft skills + 3 jours hackathon</li>
-                        <li>Hackathons intégrés pour synthétiser les compétences de chaque unité</li>
-                    </ul>
-                </div>
+
+        <!-- ORGANISATION PÉDAGOGIQUE -->
+        <div class="section">
+          <h2 class="section-title">Organisation pédagogique</h2>
+
+          <div class="highlight">
+            <div class="title">Répartition des activités</div>
+            <div class="grid">
+              <div class="grid-item">
+                <div class="title">Théorie</div>
+                <p>
+                  <span class="percentage">25%</span>Concepts fondamentaux et
+                  bases théoriques
+                </p>
+              </div>
+              <div class="grid-item">
+                <div class="title">Pratique</div>
+                <p>
+                  <span class="percentage">75%</span>Exercices, défis, cas
+                  pratiques, projets
+                </p>
+              </div>
             </div>
+          </div>
 
-            <!-- ORGANISATION PÉDAGOGIQUE -->
-            <div class="section">
-                <h2 class="section-title">Organisation pédagogique</h2>
-                
-                <div class="highlight">
-                    <div class="title">Répartition des activités</div>
-                    <div class="grid">
-                        <div class="grid-item">
-                            <div class="title">Théorie</div>
-                            <p><span class="percentage">25%</span>Concepts fondamentaux et bases théoriques</p>
-                        </div>
-                        <div class="grid-item">
-                            <div class="title">Pratique</div>
-                            <p><span class="percentage">75%</span>Exercices, défis, cas pratiques, projets</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3 class="subsection-title">Bonnes pratiques</h3>
-                    <ul class="list">
-                        <li>Limiter l'autonomie prolongée : pas de journées entières sans encadrement</li>
-                        <li>Steps précises pour les phases d'autonomie avec points d'étape réguliers</li>
-                        <li>Encadrement renforcé et suivi personnalisé</li>
-                        <li>Privilégier l'apprentissage actif par la pratique</li>
-                        <li>Affichage dans la classe du planning de l'unité</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- SYSTÈME D'ÉVALUATION -->
-            <div class="section">
-                <h2 class="section-title">Système d'évaluation</h2>
-                
-                <div class="highlight">
-                    <div class="title">Principe fondamental</div>
-                    <p class="text">Chaque matière est évaluée individuellement par QCM : 20 à 40 questions en ordre aléatoire, une question par écran, temps limité. Correction automatique sur LMS avec résultats immédiats.</p>
-                    <div class="status decided">Responsable QCM : Maxence</div>
-                </div>
-
-                <div class="subsection">
-                    <h3 class="subsection-title">Pondération des notes par unité</h3>
-                    <ul class="list">
-                        <li><span class="percentage">60%</span>Moyenne des QCM de toutes les matières de l'unité</li>
-                        <li><span class="percentage">30%</span>Possibilité future d'implémentation d'un QCM à mi-parcours ?? </li>
-                        <li><span class="percentage">25%</span>Note du hackathon (projet de fin d'unité)</li>
-                        <li><span class="percentage">15%</span>Note des soft skills (évaluation continue)</li>
-                    </ul>
-                </div>
-
-                <div class="highlight">
-                    <div class="title">Attribution des crédits ECTS</div>
-                    <p class="text">Condition de validation : Note totale de l'unité ≥ 12/20</p>
-                    <div class="formula">
-                        (Moyenne QCM × 0,6) + (Note Hackathon × 0,25) + (Note Soft Skills × 0,15) ≥ 12/20
-                    </div>
-                </div>
-            </div>
-
-            <!-- HACKATHONS DÉTAILLÉS -->
-            <div class="section">
-                <h2 class="section-title">Système des hackathons (3 jours)</h2>
-                
-                <div class="hackathon-detail">
-                    <div class="hackathon-title">Format et Structure des Hackathons</div>
-                    <p class="text">Les hackathons d'unité s'étalent sur <strong>3 jours consécutifs</strong>, constituant l'évaluation finale de chaque unité. Organisés en <strong>équipes de 3 à 4 étudiants</strong>, ces projets intensifs représentent des défis techniques majeurs sous contraintes temporelles.</p>
-                </div>
-                
-                <div class="subsection">
-                    <h3 class="subsection-title">Déroulement chronologique</h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-day">Jour 1 - Kick-off et Conception</div>
-                            <div class="timeline-content">
-                                • 9h00 : Présentation du sujet (45 min)<br>
-                                • 10h00 : Constitution des équipes et brainstorming<br>
-                                • 11h00-18h00 : Phase de conception et architecture<br>
-                                • 18h00 : Point d'étape obligatoire avec formateurs
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-day">Jour 2 - Développement Intensif</div>
-                            <div class="timeline-content">
-                                • 9h00-12h00 : Développement core features<br>
-                                • 14h00-18h00 : Implémentation avancée<br>
-                                • 18h00 : Checkpoint technique obligatoire<br>
-                                • Soirée libre (travail optionnel)
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-day">Jour 3 - Finalisation et Soutenance</div>
-                            <div class="timeline-content">
-                                • 9h00-14h00 : Finalisation, tests et debug<br>
-                                • 14h00 : Rendu obligatoire (code freeze)<br>
-                                • 15h00-18h00 : Soutenances (20 min/équipe)<br>
-                                • 18h30 : Délibération et résultats
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3 class="subsection-title">Types de projets par niveau</h3>
-                    <div class="grid">
-                        <div class="grid-item">
-                            <div class="title">B1 - Projets Fondamentaux</div>
-                            <p>Applications console avancées, jeux 2D simples, outils CLI, scripts d'automatisation, sites web statiques interactifs</p>
-                        </div>
-                        <div class="grid-item">
-                            <div class="title">B2 - Applications Métier</div>
-                            <p>Applications web full-stack, APIs REST avec BDD, systèmes de gestion simplifiés, applications mobiles hybrides</p>
-                        </div>
-                        <div class="grid-item">
-                            <div class="title">B3 - Solutions Professionnelles</div>
-                            <p>Architectures microservices, applications cloud-native, pipelines CI/CD complexes, solutions IoT, systèmes distribués</p>
-                        </div>
-                    </div>
-                    
-                    <h4 class="subsection-title" style="margin-top: 40px;">Master - Projets de spécialisation</h4>
-                    <div class="grid">
-                        <div class="grid-item">
-                            <div class="title">M1 Big Data</div>
-                            <p>Projets ML avec Python/Pandas, pipelines de données avec Spark, architectures Big Data distribuées, MLOps et NLP</p>
-                        </div>
-                        <div class="grid-item">
-                            <div class="title">M1 Cybersécurité</div>
-                            <p>Outils de sécurité réseau et cryptographie, plateformes de pentest, applications de sécurité web, systèmes de défense/attaque</p>
-                        </div>
-                        <div class="grid-item">
-                            <div class="title">M2 Big Data</div>
-                            <p>Systèmes de gouvernance des données, plateformes de streaming temps réel, solutions IA/ML avancées, projets Data Science Business</p>
-                        </div>
-                        <div class="grid-item">
-                            <div class="title">M2 Cybersécurité</div>
-                            <p>Scripts Python de sécurité, solutions de sécurité cloud/IoT/mobile, outils de forensic, systèmes de pentesting avancé</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3 class="subsection-title">Composition du jury</h3>
-                    <div class="grid">
-                        <div class="grid-item">
-                            <div class="title">Responsable Pédagogique</div>
-                            <p>Direction de l'évaluation, validation des critères, arbitrage final</p>
-                        </div>
-                        <div class="grid-item">
-                            <div class="title">Formateurs Techniques</div>
-                            <p>Évaluation technique, architecture, bonnes pratiques</p>
-                        </div>
-                        <div class="grid-item">
-                            <div class="title">Étudiants Senior (M2)</div>
-                            <p>Peer assessment, évaluation collaboration</p>
-                        </div>
-                        <div class="grid-item">
-                            <div class="title">Professionnels Partenaires</div>
-                            <p>Vision métier, pertinence business</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="subsection">
-                    <h3 class="subsection-title">Critères d'évaluation des hackathons</h3>
-                    <div class="evaluation-grid">
-                        <div class="evaluation-card">
-                            <h4>Qualité Technique</h4>
-                            <div class="evaluation-percentage">40%</div>
-                            <p>Architecture, qualité du code, bonnes pratiques, performance, gestion d'erreurs...</p>
-                        </div>
-                        
-                        <div class="evaluation-card">
-                            <h4>Méthodologie</h4>
-                            <div class="evaluation-percentage">25%</div>
-                            <p>Gestion de projet, organisation d'équipe, outils collaboratifs, respect des délais</p>
-                        </div>
-                        
-                        <div class="evaluation-card">
-                            <h4>Adaptabilité</h4>
-                            <div class="evaluation-percentage">20%</div>
-                            <p>Gestion de l'imprévu, résolution de problèmes, autonomie, débrouillardise</p>
-                        </div>
-                        
-                        <div class="evaluation-card">
-                            <h4>Présentation</h4>
-                            <div class="evaluation-percentage">15%</div>
-                            <p>Clarté, maîtrise technique lors de la soutenance, argumentation</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="important">
-                    <div class="title">Règles fondamentales des hackathons</div>
-                    <ul class="list">
-                        <li><strong>Principe "Ça marche ou ça marche pas" :</strong> Le projet doit impérativement fonctionner selon les spécifications</li>
-                        <li>Sprint review <strong>2 fois par jour</strong></li>
-                        <li><strong>Autonomie obligatoire :</strong> Aucune aide technique après la session Q&R initiale</li>
-                        <li><strong>Maîtrise collective :</strong> Tous les membres doivent maîtriser l'ensemble du code développé</li>
-                        <li><strong>Évolution du sujet :</strong> Modifications possibles jusqu'à la fin du Jour 1 pour simuler les changements en entreprise</li>
-                        <li><strong>Participation universelle :</strong> Tous les étudiants peuvent intégrer le hackathon, quel que soit leur niveau (Voir si possible hackaton de classes mélangées)</li>
-                        <li><strong>Usage de l'IA autorisé :</strong> Utilisation d'outils d'intelligence artificielle permise pendant le hackathon</li>
-                    </ul>
-                </div>
-
-                <div class="important">
-                    <div class="title">Gestion des absences spécifique aux hackathons</div>
-                    <ul class="list">
-                        <li><strong>Absence 1 jour :</strong> L'étudiant peut rejoindre son équipe et continuer le projet</li>
-                        <li><strong>Absence 2 jours :</strong> L'étudiant peut encore participer mais avec impact sur l'évaluation --> 1/3 de la note du groupe</li>
-                        <li><strong>Absence 3 jours complets :</strong> Note 0/20 définitive, aucune possibilité de rattrapage</li>
-                        <li><strong>Principe strict :</strong> Aucun hackathon de rattrapage n'est organisé</li>
-                        <li><strong>Justification :</strong> Même règle des 48h maximum pour justifier l'absence</li>
-                    </ul>
-                </div>
-            </div>
-
-
-<div class="section">
-    <h2>Rappel hebdomadaire obligatoire</h2>
-    
-    <p><strong>Chaque lundi matin</strong>, le formateur responsable du premier cours doit systématiquement rappeler aux étudiants de vérifier :</p>
-    <ul>
-        <li>Les <strong>rattrapages</strong> éventuels à prévoir</li>
-        <li>La préparation du <strong>hackaton</strong></li>
-    </ul>
-    
-    <p>Ce rappel permet d'éviter les oublis et de maintenir un rythme de travail régulier tout au long de l'année.</p>
-</div>
-
-            <div class="section">
-   <h2>Cycle de cours standard - 3 jours</h2>
-   
-   <h3>Jour 1 - Accueil et positionnement</h3>
-   <ul>
-       <li><strong>Présentation du formateur</strong> : parcours, expérience, spécialités</li>
-       <li><strong>Tour de table des étudiants</strong> : nom, parcours, attentes</li>
-       <li><strong>Évaluation du niveau</strong> : quiz rapide ou échanges sur les acquis</li>
-       <li><strong>Analyse du parcours</strong> : matières déjà suivies, cycle d'études en cours</li>
-   </ul>
-
-   <h3>Présentation du programme</h3>
-   <ul>
-       <li><strong>Objectifs pédagogiques</strong> de la matière</li>
-       <li><strong>Contenu détaillé</strong> des 3 jours</li>
-       <li><strong>Méthodes d'apprentissage</strong> utilisées</li>
-       <li><strong>Ressources</strong> et supports de cours</li>
-   </ul>
-
-   <h3>Modalités d'évaluation</h3>
-   <ul>
-       <li><strong>QCM en fin de matière</strong> : évaluation systématique</li>
-       <li><strong>Critères de notation</strong> et barème</li>
-       <li><strong>Date et durée</strong> de l'évaluation</li>
-       <li><strong>Conditions de rattrapage</strong> si nécessaire</li>
-   </ul>
-
-   <h3>Intégration au hackaton</h3>
-   <ul>
-       <li><strong>Rôle de cette matière</strong> dans le projet final</li>
-       <li><strong>Compétences mobilisées</strong> pendant le hackaton</li>
-       <li><strong>Articulation</strong> avec les autres matières du cursus</li>
-   </ul>
-</div>
-
-<div class="important">
-    <h2>Règles de ponctualité</h2>
-    
-    <h3>Règle des 15 minutes</h3>
-    <p>Tout retard supérieur à <strong>15 minutes</strong> entraîne automatiquement :</p>
-    <ul>
-        <li>Interdiction d'entrée en cours</li>
-        <li>Attente obligatoire jusqu'à la fin de la pause suivante</li>
-        <li>Absence injustifiée comptabilisée</li>
-    </ul>
-    
-    <h3>Gestion des absences et retards</h3>
-    <ul>
-        <li><strong>Retard 0-15 min</strong> : entrée autorisée</li>
-        <li><strong>Retard +15 min</strong> : refus d'entrée, entrée autorisée après la pause</li>
-        <li><strong>3 retards</strong> : convocation avec les responsables</li>
-        <li><strong>Absence non justifiée</strong> : rattrapage du contenu manqué</li>
-    </ul>
-</div>
-
-            <!-- GESTION DES ABSENCES ET RATTRAPAGES -->
-            <div class="section">
-                <h2 class="section-title">Gestion des absences et rattrapages</h2>
-                
-                <div class="important">
-                    <div class="title">Règles strictes d'absence</div>
-                    <ul class="list">
-                        <li><strong>Absence injustifiée :</strong> Note 0/20 définitive, aucun rattrapage possible</li>
-                        <li><strong>Absence justifiée :</strong> Possibilité de rattrapage lors de la journée dédiée</li>
-                        <li><strong>Délai de justification :</strong> 48h maximum après l'absence</li>
-                    </ul>
-                </div>
-
-                <div class="subsection">
-                    <h3 class="subsection-title">Système de rattrapage</h3>
-                    <ul class="list">
-                        <li>Déclenchement si moyenne des QCM inférieure à 12/20</li>
-                        <li>L'étudiant repasse uniquement les QCM des matières avec note < 10/20 </li>
-                        <li>Une seule tentative de rattrapage par matière</li>
-                        <li>Même niveau de difficulté et même format que l'évaluation initiale</li>
-                    </ul>
-                </div>
-
-                <div class="subsection">
-                    <h3 class="subsection-title">Excuses valables</h3>
-                    <ul class="list">
-                        <li>Maladie avec certificat médical</li>
-                        <li>Urgence familiale grave avec justificatifs officiels</li>
-                        <li>Convocation administrative, judiciaire ou militaire</li>
-                        <li>Force majeure (transport, intempéries exceptionnelles)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- PARTENARIATS -->
-            <div class="section">
-                <h2 class="section-title">Partenariats entreprises</h2>
-                
-                <div class="subsection">
-                    <ul class="list">
-                        <li><strong>Unité 1 :</strong> Projets internes uniquement pour toutes les années</li>
-                        <li><strong>Unités 2 et 3 :</strong> Participation possible des entreprises partenaires</li>
-                        <li><strong>Jurys mixtes :</strong> École + entreprises pour l'évaluation des unités 2 et 3</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- ÉLÉMENTS À DÉFINIR -->
-            <div class="section">
-                <h2 class="section-title">Éléments en cours de définition</h2>
-                
-                <div class="grid">
-                    <div class="grid-item">
-                        <div class="title">Hackaton <span class="to-define">À définir</span></div>
-                        <ul class="list">
-                            <li>Grille d'évaluation</li>
-                            <li>Sujets des projets avec leurs contraintes et leurs objectifs</li>
-                        </ul>
-                    </div>
-                    <div class="grid-item">
-                        <div class="title">Stages <span class="to-define">À définir</span></div>
-                        <ul class="list">
-                            <li>Modalités d'intégration dans l'évaluation</li>
-                            <li>Pondération dans la note finale d'année: crédits supplémentaires, si oui combien ?</li>
-                            <li>Organisation pratique (durée, période)</li>
-                        </ul>
-                    </div>
-                    <div class="grid-item">
-                        <div class="title">Master - Soutenances <span class="to-define">À définir</span></div>
-                        <ul class="list">
-                            <li>Attribution des sujets de soutenance</li>
-                            <li>Grille d'évaluation et jurys</li>
-                            <li>Calendrier et critères</li>
-                        </ul>
-                    </div>
-                    <div class="grid-item">
-                        <div class="title">Organisation interne <span class="to-define">À définir</span></div>
-                        <ul class="list">
-                            <li>Validation finale des notes</li>
-                            <li>Rôle de Thierry (cours vs hackathons)</li>
-                            <li>Comité de révision pour cas limites</li>
-                            <li>Support centralisé pour l'administratif étudiants</li>
-                            <li>Idem pour les formateurs</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PROCHAINES ÉTAPES -->
-            <div class="section">
-                <h2 class="section-title">Prochaines étapes</h2>
-                
-                <div class="grid">
-                    <div class="grid-item">
-                        <div class="title">Court terme</div>
-                        <ul class="list">
-                            <li>Finaliser les modalités des stages</li>
-                            <li>Définir les critères du comité de révision</li>
-                            <li>Créer le guide pour les formateurs</li>
-                            <li>Créer le guide pour les élèves</li>
-                            <li>Créer le guide pour les référents</li>
-                        </ul>
-                    </div>
-                    <div class="grid-item">
-                        <div class="title">Moyen terme</div>
-                        <ul class="list">
-                            <li>Organiser les soutenances Master</li>
-                            <li>Mettre en place les jurys mixtes</li>
-                            <li>Optimiser la pédagogie active</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Bonnes pratiques</h3>
+            <ul class="list">
+              <li>
+                Limiter l'autonomie prolongée : pas de journées entières sans
+                encadrement
+              </li>
+              <li>
+                Steps précises pour les phases d'autonomie avec points d'étape
+                réguliers
+              </li>
+              <li>Encadrement renforcé et suivi personnalisé</li>
+              <li>Privilégier l'apprentissage actif par la pratique</li>
+              <li>Affichage dans la classe du planning de l'unité</li>
+            </ul>
+          </div>
         </div>
-        
-        <div class="footer">
-            <p><strong>École IT</strong> - Document de travail interne</p>
-            <p>Programme B1-M2 - Version 3.0 - Juin 2025</p>
+
+        <!-- SYSTÈME D'ÉVALUATION -->
+        <div class="section">
+          <h2 class="section-title">Système d'évaluation</h2>
+
+          <div class="highlight">
+            <div class="title">Principe fondamental</div>
+            <p class="text">
+              Chaque matière est évaluée individuellement par QCM : 20 à 40
+              questions en ordre aléatoire, une question par écran, temps
+              limité. Correction automatique sur LMS avec résultats immédiats.
+            </p>
+            <div class="status decided">Responsable QCM : Maxence</div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Pondération des notes par unité</h3>
+            <ul class="list">
+              <li>
+                <span class="percentage">45%</span>Moyenne des QCM de toutes les
+                matières de l'unité
+              </li>
+              <li>
+                <span class="percentage">40%</span>Note du projet de fin d'unité
+              </li>
+              <li><span class="percentage">15%</span>Note des soft skills</li>
+            </ul>
+          </div>
+
+          <div class="highlight">
+            <div class="title">Attribution des crédits ECTS</div>
+            <p class="text">
+              Condition de validation : Note finale de l'unité ≥ 12/20
+            </p>
+            <p class="text">20 crédits ECTS par unité validée</p>
+            <div class="formula">
+              (Moyenne QCM × 0,6) + (Note Hackathon × 0,25) + (Note Soft Skills
+              × 0,15) ≥ 12/20
+            </div>
+          </div>
         </div>
+
+        <!-- projets de fin d'unité DÉTAILLÉS -->
+        <div class="section">
+          <h2 class="section-title">
+            Système des projets de fin d'unité (3 jours)
+          </h2>
+
+          <div class="hackathon-detail">
+            <div class="hackathon-title">
+              Format et Structure des projets de fin d'unité
+            </div>
+            <p class="text">
+              Les projets de fin d'unité d'unité s'étalent sur
+              <strong>3 jours consécutifs</strong>, constituant l'évaluation
+              finale de chaque unité. Organisés en
+              <strong>équipes de 3 étudiants</strong>, ces projets intensifs
+              représentent des défis techniques majeurs sous contraintes
+              temporelles.
+            </p>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Déroulement chronologique</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-day">Jour 1 - Kick-off et Conception</div>
+                <div class="timeline-content">
+                  • 9h00 : Présentation du sujet (45 min)<br />
+                  • 10h00 : Constitution des équipes et brainstorming<br />
+                  • 11h00-17h00 : Phase de conception et architecture<br />
+                  • 17h00 : Point d'étape obligatoire avec formateurs
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-day">Jour 2 - Développement Intensif</div>
+                <div class="timeline-content">
+                  • 9h00-12h00 : Développement core features<br />
+                  • 14h00-17h00 : Implémentation avancée<br />
+                  • 17h00 : Checkpoint technique obligatoire<br />
+                  • Soirée libre (travail optionnel)
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-day">
+                  Jour 3 - Finalisation et Soutenance
+                </div>
+                <div class="timeline-content">
+                  • 9h00-14h00 : Finalisation, tests et debug<br />
+                  • 14h00 : Rendu obligatoire (code freeze)<br />
+                  • 15h00-17h00 : Soutenances (20 min/équipe)<br />
+                  • 17h00 : Délibération et résultats
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Types de projets par niveau</h3>
+            <div class="grid">
+              <div class="grid-item">
+                <div class="title">B1 - Projets Fondamentaux</div>
+                <p>
+                  Applications console avancées, jeux 2D simples, outils CLI,
+                  scripts d'automatisation, sites web statiques interactifs
+                </p>
+              </div>
+              <div class="grid-item">
+                <div class="title">B2 - Applications Métier</div>
+                <p>
+                  Applications web full-stack, APIs REST avec BDD, systèmes de
+                  gestion simplifiés, applications mobiles hybrides
+                </p>
+              </div>
+              <div class="grid-item">
+                <div class="title">B3 - Solutions Professionnelles</div>
+                <p>
+                  Architectures microservices, applications cloud-native,
+                  pipelines CI/CD complexes, solutions IoT, systèmes distribués
+                </p>
+              </div>
+            </div>
+
+            <h4 class="subsection-title" style="margin-top: 40px">
+              Master - Projets de spécialisation
+            </h4>
+            <div class="grid">
+              <div class="grid-item">
+                <div class="title">M1 Big Data</div>
+                <p>
+                  Projets ML avec Python/Pandas, pipelines de données avec
+                  Spark, architectures Big Data distribuées, MLOps et NLP
+                </p>
+              </div>
+              <div class="grid-item">
+                <div class="title">M1 Cybersécurité</div>
+                <p>
+                  Outils de sécurité réseau et cryptographie, plateformes de
+                  pentest, applications de sécurité web, systèmes de
+                  défense/attaque
+                </p>
+              </div>
+              <div class="grid-item">
+                <div class="title">M2 Big Data</div>
+                <p>
+                  Systèmes de gouvernance des données, plateformes de streaming
+                  temps réel, solutions IA/ML avancées, projets Data Science
+                  Business
+                </p>
+              </div>
+              <div class="grid-item">
+                <div class="title">M2 Cybersécurité</div>
+                <p>
+                  Scripts Python de sécurité, solutions de sécurité
+                  cloud/IoT/mobile, outils de forensic, systèmes de pentesting
+                  avancé
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Composition du jury</h3>
+            <div class="grid">
+              <div class="grid-item">
+                <div class="title">Responsable Pédagogique</div>
+                <p>
+                  Direction de l'évaluation, validation des critères, arbitrage
+                  final
+                </p>
+              </div>
+              <div class="grid-item">
+                <div class="title">Formateurs Techniques</div>
+                <p>Évaluation technique, architecture, bonnes pratiques</p>
+              </div>
+              <div class="grid-item">
+                <div class="title">Professionnels Partenaires</div>
+                <p>Vision métier, pertinence business</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">
+              Critères d'évaluation des projets de fin d'unité
+            </h3>
+            <div class="evaluation-grid">
+              <div class="evaluation-card">
+                <h4>Qualité Technique</h4>
+                <div class="evaluation-percentage">40%</div>
+                <p>
+                  Architecture, qualité du code, bonnes pratiques, performance,
+                  gestion d'erreurs...
+                </p>
+              </div>
+
+              <div class="evaluation-card">
+                <h4>Méthodologie</h4>
+                <div class="evaluation-percentage">25%</div>
+                <p>
+                  Gestion de projet, organisation d'équipe, outils
+                  collaboratifs, respect des délais
+                </p>
+              </div>
+
+              <div class="evaluation-card">
+                <h4>Adaptabilité</h4>
+                <div class="evaluation-percentage">20%</div>
+                <p>
+                  Gestion de l'imprévu, résolution de problèmes, autonomie,
+                  débrouillardise
+                </p>
+              </div>
+
+              <div class="evaluation-card">
+                <h4>Présentation</h4>
+                <div class="evaluation-percentage">15%</div>
+                <p>
+                  Clarté, maîtrise technique lors de la soutenance,
+                  argumentation
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="important">
+            <div class="title">
+              Règles fondamentales des projets de fin d'unité
+            </div>
+            <ul class="list">
+              <li>
+                <strong>Principe "Ça marche ou ça marche pas" :</strong> Le
+                projet doit impérativement fonctionner selon les spécifications
+              </li>
+              <li>Sprint review <strong>2 fois par jour</strong></li>
+              <li>
+                <strong>Autonomie obligatoire :</strong> Aucune aide technique
+                après la session Q&R initiale
+              </li>
+              <li>
+                <strong>Maîtrise collective :</strong> Tous les membres doivent
+                maîtriser l'ensemble du code développé
+              </li>
+              <li>
+                <strong>Évolution du sujet :</strong> Modifications possibles
+                jusqu'à la fin du Jour 1 pour simuler les changements en
+                entreprise
+              </li>
+              <li>
+                <strong>Participation universelle :</strong> Tous les étudiants
+                peuvent intégrer le hackathon, quel que soit leur niveau (Voir
+                si possible projet de fin d'unité de classes mélangées)
+              </li>
+              <li>
+                <strong>Usage de l'IA autorisé :</strong> Utilisation d'outils
+                d'intelligence artificielle permise pendant le hackathon
+              </li>
+            </ul>
+          </div>
+
+          <div class="important">
+            <div class="title">
+              Gestion des absences spécifique aux projets de fin d'unité
+            </div>
+            <ul class="list">
+              <li>
+                <strong>Absence 1 jour :</strong> L'étudiant peut rejoindre son
+                équipe et continuer le projet
+              </li>
+              <li>
+                <strong>Absence 2 jours :</strong> L'étudiant peut encore
+                participer mais avec impact sur l'évaluation --> 1/3 de la note
+                du groupe
+              </li>
+              <li>
+                <strong>Absence 3 jours complets :</strong> Note 0/20
+                définitive, aucune possibilité de rattrapage
+              </li>
+              <li>
+                <strong>Principe strict :</strong> Aucun hackathon de rattrapage
+                n'est organisé
+              </li>
+              <li>
+                <strong>Justification :</strong> Même règle des 48h maximum pour
+                justifier l'absence
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Cycle de cours standard - 3 jours</h2>
+
+          <h3>Jour 1 - Accueil et positionnement</h3>
+          <ul>
+            <li>
+              <strong>Présentation du formateur</strong> : parcours, expérience,
+              spécialités
+            </li>
+            <li>
+              <strong>Tour de table des étudiants</strong> : nom, parcours,
+              attentes
+            </li>
+            <li>
+              <strong>Évaluation du niveau</strong> : quiz rapide ou échanges
+              sur les acquis
+            </li>
+            <li>
+              <strong>Analyse du parcours</strong> : matières déjà suivies,
+              cycle d'études en cours
+            </li>
+          </ul>
+
+          <h3>Présentation du programme</h3>
+          <ul>
+            <li><strong>Objectifs pédagogiques</strong> de la matière</li>
+            <li><strong>Contenu détaillé</strong> des 3 jours</li>
+            <li><strong>Méthodes d'apprentissage</strong> utilisées</li>
+            <li><strong>Ressources</strong> et supports de cours</li>
+          </ul>
+
+          <h3>Modalités d'évaluation</h3>
+          <ul>
+            <li>
+              <strong>QCM en fin de matière</strong> : évaluation systématique
+            </li>
+            <li><strong>Critères de notation</strong> et barème</li>
+            <li><strong>Date et durée</strong> de l'évaluation</li>
+            <li><strong>Conditions de rattrapage</strong> si nécessaire</li>
+          </ul>
+
+          <h3>Intégration au projet de fin d'unité</h3>
+          <ul>
+            <li><strong>Rôle de cette matière</strong> dans le projet final</li>
+            <li>
+              <strong>Compétences mobilisées</strong> pendant le projet de fin
+              d'unité
+            </li>
+            <li>
+              <strong>Articulation</strong> avec les autres matières du cursus
+            </li>
+          </ul>
+        </div>
+
+        <div class="important">
+          <h2>Règles de ponctualité</h2>
+
+          <h3>Règle des 10 minutes</h3>
+          <p>
+            Tout retard supérieur à <strong>10 minutes</strong> entraîne
+            automatiquement :
+          </p>
+          <ul>
+            <li>Interdiction d'entrée en cours</li>
+            <li>Attente obligatoire jusqu'à la fin de la pause suivante</li>
+            <li>Absence injustifiée comptabilisée</li>
+          </ul>
+
+          <h3>Gestion des absences et retards</h3>
+          <ul>
+            <li><strong>Retard 0-10 min</strong> : entrée autorisée</li>
+            <li>
+              <strong>Retard +10 min</strong> : refus d'entrée, entrée autorisée
+              après la pause
+            </li>
+            <li>
+              <strong>3 retards</strong> : convocation avec les responsables
+            </li>
+            <li>
+              <strong>Absence non justifiée</strong> : rattrapage du contenu
+              manqué
+            </li>
+          </ul>
+        </div>
+
+        <!-- GESTION DES ABSENCES ET RATTRAPAGES -->
+        <div class="section">
+          <h2 class="section-title">Gestion des absences et rattrapages</h2>
+
+          <div class="important">
+            <div class="title">Règles strictes d'absence</div>
+            <ul class="list">
+              <li>
+                <strong>Absence injustifiée :</strong> Note 0/20 définitive,
+                aucun rattrapage possible
+              </li>
+              <li>
+                <strong>Absence justifiée :</strong> Possibilité de rattrapage
+                lors de la journée dédiée
+              </li>
+              <li>
+                <strong>Délai de justification :</strong> 48h maximum après
+                l'absence
+              </li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Système de rattrapage</h3>
+            <ul class="list">
+              <li>Déclenchement si moyenne de l'unité inférieure à 12/20</li>
+              <li></li>
+              <li>Un projet de rattrapage par unité avec un niveau plus élevé</li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Excuses valables</h3>
+            <ul class="list">
+              <li>Maladie avec certificat médical</li>
+              <li>Urgence familiale grave avec justificatifs officiels</li>
+              <li>Convocation administrative, judiciaire avec preuve (hors banque)</li>
+              <li>Force majeure (transport, intempéries exceptionnelles)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- PARTENARIATS -->
+        <div class="section">
+          <h2 class="section-title">Partenariats entreprises</h2>
+
+          <div class="subsection">
+            <ul class="list">
+              <li>
+                <strong>Unité 1 :</strong> Projets internes uniquement pour
+                toutes les années
+              </li>
+              <li>
+                <strong>Unités 2 et 3 :</strong> Participation possible des
+                entreprises partenaires
+              </li>
+              <li>
+                <strong>Jurys mixtes :</strong> École + entreprises pour
+                l'évaluation des unités 2 et 3
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ÉLÉMENTS À DÉFINIR -->
+        <div class="section">
+          <h2 class="section-title">Éléments en cours de définition</h2>
+
+          <div class="grid">
+            <div class="grid-item">
+              <div class="title">
+                projet de fin d'unité <span class="to-define">À définir</span>
+              </div>
+              <ul class="list">
+                <li>Grille d'évaluation</li>
+                <li>
+                  Sujets des projets avec leurs contraintes et leurs objectifs
+                </li>
+              </ul>
+            </div>
+            <div class="grid-item">
+              <div class="title">
+                Stages <span class="to-define">À définir</span>
+              </div>
+              <ul class="list">
+                <li>Modalités d'intégration dans l'évaluation</li>
+                <li>
+                  Pondération dans la note finale d'année: crédits
+                  supplémentaires, si oui combien ?
+                </li>
+                <li>Organisation pratique (durée, période) voir avec les CM</li>
+              </ul>
+            </div>
+            <div class="grid-item">
+              <div class="title">
+                Master - Soutenances <span class="to-define">À définir</span>
+              </div>
+              <ul class="list">
+                <li>Attribution des sujets de soutenance</li>
+                <li>Grille d'évaluation et jurys</li>
+                <li>Calendrier et critères</li>
+              </ul>
+            </div>
+            <div class="grid-item">
+              <div class="title">
+                Organisation interne <span class="to-define">À définir</span>
+              </div>
+              <ul class="list">
+                <li>Validation finale des notes</li>
+                <li>Rôle de Thierry (cours vs projets de fin d'unité)</li>
+                <li>Comité de révision pour cas limites</li>
+                <li>Support centralisé pour l'administratif étudiants</li>
+                <li>Idem pour les formateurs</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROCHAINES ÉTAPES -->
+        <div class="section">
+          <h2 class="section-title">Prochaines étapes</h2>
+
+          <div class="grid">
+            <div class="grid-item">
+              <div class="title">Court terme</div>
+              <ul class="list">
+                <li>Finaliser les modalités des stages</li>
+                <li>Définir les critères du comité de révision</li>
+                <li>Créer le guide pour les formateurs</li>
+                <li>Créer le guide pour les élèves</li>
+                <li>Créer le guide pour les référents</li>
+              </ul>
+            </div>
+            <div class="grid-item">
+              <div class="title">Moyen terme</div>
+              <ul class="list">
+                <li>Organiser les soutenances Master</li>
+                <li>Mettre en place les jurys mixtes</li>
+                <li>Optimiser la pédagogie active</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p><strong>École IT</strong> - Document de travail interne</p>
+        <p>Programme B1-M2 - Version 3.0 - Juin 2025</p>
+      </div>
     </div>
-</body>
+  </body>
 </html>
