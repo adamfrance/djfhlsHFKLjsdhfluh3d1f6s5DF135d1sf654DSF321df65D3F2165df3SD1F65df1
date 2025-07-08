@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>École IT - Syllabus de Formation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .document {
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Header avec style moderne */
+        .header {
+            background: linear-gradient(135deg, #2c3e7d 0%, #3a4f8f 100%);
+            color: white;
+            padding: 40px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -30px;
+            width: 280px;
+            height: 76px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 166.7 44'%3E%3Cstyle%3E.st0%7Bfill:%23FFFFFF%7D.st1%7Bfill:%23C62385%7D%3C/style%3E%3Cg%3E%3Cpath class='st0' d='M90.7,37.6c-2-0.8-3.3-2.7-3.3-4.8v-2.1l0,0V0h-6.1v30.6l0,0v2.1c0,6.2,5,11.2,11.2,11.3h3.3C93.5,42.5,91.7,40.2,90.7,37.6'/%3E%3Cpath class='st0' d='M98.5,32.5c0.3,4.1,3.9,6.4,7.4,6.3c2.5,0.1,4.9-1.2,6.1-3.4h6.3c-1.1,2.6-2.8,4.8-5.1,6.4c-2.1,1.5-4.7,2.3-7.3,2.2c-7.5,0-13.5-6.1-13.5-13.6c0-7.4,6-13.4,13.4-13.5c3.6-0.1,7,1.3,9.5,3.9c3,3.1,4.4,7.4,3.8,11.6L98.5,32.5z M113,27.8c-0.6-3.5-3.7-5.9-7.2-5.8c-4.5,0-7,3.2-7.2,5.8H113z'/%3E%3Cpath class='st0' d='M6.4,32.5c0.3,4.1,3.9,6.4,7.4,6.3c2.5,0.1,4.9-1.2,6.1-3.4h6.3c-1.1,2.6-2.8,4.8-5.1,6.4c-2.1,1.5-4.7,2.3-7.3,2.2C6.3,43.9,0.3,37.8,0.4,30.3C0.5,23,6.4,17,13.7,16.9c3.6-0.1,7,1.3,9.5,3.9c3,3.1,4.4,7.4,3.8,11.6L6.4,32.5z M21,27.8c-0.6-3.5-3.7-5.9-7.2-5.8c-4.5,0-7,3.2-7.2,5.8H21z'/%3E%3Cpath class='st0' d='M64.1,17c-7.3-0.2-13.4,5.5-13.6,12.8c0,0.2,0,0.4,0,0.6v0c0,1.2,0.2,2.3,0.4,3.5h-0.1c-1.2,2.7-3.9,4.5-6.9,4.4c-4.3,0-7.5-3.2-7.5-7.8c0-2.1,0.7-4.1,2.1-5.7c1.4-1.5,3.4-2.3,5.4-2.2c1.4,0,2.7,0.4,3.9,1.1c0.8-1.8,1.9-3.3,3.3-4.6c-2.2-1.4-4.8-2.1-7.5-2.1c-7.5,0.2-13.4,6.4-13.2,13.8c0.2,7.5,6.4,13.4,13.8,13.2c3.7-0.1,7.2-1.7,9.6-4.4c5,5.6,13.6,6.2,19.2,1.2s6.2-13.6,1.2-19.2C71.7,18.6,68,17,64.1,17M64.1,38.2c-4.2,0-7.6-3.4-7.6-7.5c0-0.1,0-0.1,0-0.2v0c0.1-4.2,3.6-7.4,7.8-7.3c4.2,0.1,7.4,3.6,7.3,7.8C71.5,35,68.1,38.2,64.1,38.2'/%3E%3Cpath class='st0' d='M166.7,10h-26v6h10v27.8h6.1V16h10L166.7,10z'/%3E%3Cpath class='st0' d='M136.9,30.5v-1.4l0,0v-8h-6.1v8l0,0v1.4c0,0.1,0,0.1,0,0.2v0.4h0c0.3,7.2,6.3,12.9,13.5,12.9v-6.1C140.2,37.9,136.9,34.6,136.9,30.5'/%3E%3Crect x='130.8' y='10' class='st1' width='6.1' height='7.5'/%3E%3Cpath class='st0' d='M5.3,13.5H0V7.4h5.3c4,0,7.3-3.3,7.3-7.3h6.1C18.7,7.5,12.7,13.5,5.3,13.5'/%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            opacity: 0.7;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .title-section {
+            flex: 1;
+        }
+        
+        .course-code {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #e91e63;
+        }
+        
+        .course-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        
+        .school-info {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 15px;
+        }
+        
+        /* Logo placeholder */
+        .logo-container {
+            display: none;
+        }
+        
+        /* Content sections */
+        .content {
+            padding: 40px 50px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+        }
+        
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: #e91e63;
+            color: white;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-right: 15px;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #2c3e7d;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title-text {
+            flex: 1;
+        }
+        
+        /* Tables */
+        .info-table {
+            width: 100%;
+            margin-bottom: 15px;
+            border-collapse: collapse;
+        }
+        
+        .info-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .info-table td:first-child {
+            font-weight: 600;
+            color: #2c3e7d;
+            width: 30%;
+            background: #f8f9fa;
+        }
+        
+        /* Listes */
+        .content-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .content-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .content-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            background: #e91e63;
+            border-radius: 50%;
+        }
+        
+        /* Competence boxes */
+        .competence-box {
+            background: #f8f9fa;
+            border-left: 4px solid #e91e63;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .competence-box h4 {
+            color: #2c3e7d;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        /* Schedule table */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+        
+        .schedule-table thead {
+            background: #2c3e7d;
+            color: white;
+        }
+        
+        .schedule-table th,
+        .schedule-table td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .schedule-table tbody tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2c3e7d;
+            color: white;
+            padding: 20px 50px;
+            margin-top: 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-text {
+            font-size: 11px;
+            opacity: 0.9;
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                margin: 0;
+                background: white;
+            }
+            
+            .document {
+                box-shadow: none;
+                margin: 0;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+            
+            .header, .footer {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+        
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .course-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="document">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="title-section">
+                    <div class="course-code">1POO3</div>
+                    <h1 class="course-title">Introduction POO avec Python</h1>
+                    <div class="school-info">
+                        École IT - Année académique 2025-2026<br>
+                        B1 - Unité 3 - Formation de 5 jours (35h)
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Content -->
+        <div class="content">
+            <!-- Section 1: Informations générales -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-number">1</span>
+                    <span class="section-title-text">INFORMATIONS GÉNÉRALES</span>
+                </h2>
+                <table class="info-table">
+                    <tr>
+                        <td>Code module</td>
+                        <td>1POO3 - Introduction POO avec Python</td>
+                    </tr>
+                    <tr>
+                        <td>Niveau</td>
+                        <td>B1 - Unité 3</td>
+                    </tr>
+                    <tr>
+                        <td>Durée</td>
+                        <td>5 jours / 35 heures</td>
+                    </tr>
+                    <tr>
+                        <td>Prérequis</td>
+                        <td>Bases Python : variables, fonctions, structures de contrôle</td>
+                    </tr>
+                </table>
+            </section>
+            
+            <!-- Section 2: Profil du formateur -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-number">2</span>
+                    <span class="section-title-text">PROFIL DU FORMATEUR</span>
+                </h2>
+                <ul class="content-list">
+                    <li>Programmation orientée objet</li>
+                    <li>Python et ses paradigmes</li>
+                    <li>Pédagogie de la programmation</li>
+                    <li>Développement logiciel</li>
+                </ul>
+            </section>
+            
+            <!-- Section 3: Objectifs -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-number">3</span>
+                    <span class="section-title-text">OBJECTIFS</span>
+                </h2>
+                <div class="competence-box">
+                    <h4>À la fin de ce module, l'étudiant sera capable de :</h4>
+                    <ul class="content-list">
+                        <li>Comprendre et appliquer les concepts fondamentaux de la POO</li>
+                        <li>Créer et utiliser des classes et objets en Python</li>
+                        <li>Implémenter l'encapsulation, l'héritage et le polymorphisme</li>
+                        <li>Modéliser des problèmes réels avec la POO</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Section 4: Programme -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-number">4</span>
+                    <span class="section-title-text">PROGRAMME DÉTAILLÉ</span>
+                </h2>
+                
+                <h3 style="color: #2c3e7d; margin: 15px 0 10px;">Jour 1 - Introduction et premières classes</h3>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Contenu</th>
+                            <th>Format</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Concepts POO : paradigmes, classes vs objets</td>
+                            <td>Cours</td>
+                        </tr>
+                        <tr>
+                            <td>Première classe : définition, __init__, attributs</td>
+                            <td>TP</td>
+                        </tr>
+                        <tr>
+                            <td>Méthodes d'instance et self</td>
+                            <td>TP</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 style="color: #2c3e7d; margin: 15px 0 10px;">Jour 2 - Approfondissement</h3>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Contenu</th>
+                            <th>Format</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Attributs de classe vs instance</td>
+                            <td>Cours + TP</td>
+                        </tr>
+                        <tr>
+                            <td>Méthodes spéciales (__str__, __repr__)</td>
+                            <td>TP</td>
+                        </tr>
+                        <tr>
+                            <td>Projet pratique : modélisation simple</td>
+                            <td>Projet</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 style="color: #2c3e7d; margin: 15px 0 10px;">Jour 3 - Encapsulation</h3>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Contenu</th>
+                            <th>Format</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Principe d'encapsulation, attributs privés</td>
+                            <td>Cours</td>
+                        </tr>
+                        <tr>
+                            <td>Propriétés : @property, getters, setters</td>
+                            <td>TP</td>
+                        </tr>
+                        <tr>
+                            <td>QCM d'évaluation intermédiaire</td>
+                            <td>Évaluation</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 style="color: #2c3e7d; margin: 15px 0 10px;">Jour 4 - Héritage</h3>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Contenu</th>
+                            <th>Format</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Héritage simple : syntaxe, redéfinition</td>
+                            <td>Cours + TP</td>
+                        </tr>
+                        <tr>
+                            <td>Fonction super() et chaîne d'héritage</td>
+                            <td>TP</td>
+                        </tr>
+                        <tr>
+                            <td>Conception de hiérarchies simples</td>
+                            <td>Projet</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 style="color: #2c3e7d; margin: 15px 0 10px;">Jour 5 - Polymorphisme et synthèse</h3>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Contenu</th>
+                            <th>Format</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Polymorphisme et duck typing</td>
+                            <td>Cours + TP</td>
+                        </tr>
+                        <tr>
+                            <td>Surcharge d'opérateurs (méthodes magiques)</td>
+                            <td>TP</td>
+                        </tr>
+                        <tr>
+                            <td>Projet final : application POO complète</td>
+                            <td>Projet</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <!-- Section 5: Environnement technique -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-number">5</span>
+                    <span class="section-title-text">ENVIRONNEMENT TECHNIQUE</span>
+                </h2>
+                <ul class="content-list">
+                    <li><strong>Python 3.8+</strong> avec un IDE (VS Code, PyCharm)</li>
+                    <li><strong>Jupyter Notebook</strong> pour les exercices interactifs</li>
+                    <li><strong>Git</strong> pour le versioning des projets</li>
+                    <li>Alternatives cloud : replit.com ou Google Colab</li>
+                </ul>
+            </section>
+            
+            <!-- Section 6: Évaluation -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-number">6</span>
+                    <span class="section-title-text">ÉVALUATION</span>
+                </h2>
+                <div class="competence-box">
+                    <h4>QCM Final</h4>
+                    <p><strong>40 questions en ordre aléatoire - 60 minutes</strong></p>
+                    <p>Évaluation des connaissances théoriques et pratiques en POO Python.</p>
+                </div>
+                
+                <div class="competence-box">
+                    <h4>Critères d'évaluation</h4>
+                    <ul class="content-list">
+                        <li>Maîtrise de la syntaxe Python POO</li>
+                        <li>Application correcte des concepts (encapsulation, héritage, polymorphisme)</li>
+                        <li>Qualité de la modélisation objet</li>
+                        <li>Respect des bonnes pratiques</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Section 7: Ressources -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-number">7</span>
+                    <span class="section-title-text">RESSOURCES</span>
+                </h2>
+                <ul class="content-list">
+                    <li><strong>Documentation Python officielle :</strong> docs.python.org/3/tutorial/classes.html</li>
+                    <li><strong>Real Python - Tutoriels POO :</strong> realpython.com/python3-object-oriented-programming/</li>
+                    <li><strong>Exercices pratiques :</strong> exercism.org/tracks/python</li>
+                    <li>Supports de cours : présentations, exercices et solutions commentées</li>
+                </ul>
+            </section>
+            
+            <!-- Section 8: Contribution au hackathon -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-number">8</span>
+                    <span class="section-title-text">PRÉPARATION AU HACKATHON</span>
+                </h2>
+                <div class="competence-box">
+                    <h4>Compétences mobilisées pour le hackathon</h4>
+                    <p>Ce module prépare les étudiants à structurer leur code de manière modulaire et réutilisable pour le hackathon de fin d'unité. La POO permettra de créer des applications web robustes, d'organiser le code en composants cohérents et de faciliter le travail collaboratif en équipe.</p>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <strong>Version allégée - Dernière mise à jour :</strong> 08/07/2025
+                </div>
+                <div class="footer-text">
+                    École IT - Document pédagogique
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
