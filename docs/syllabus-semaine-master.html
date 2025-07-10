@@ -1,1 +1,662 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>École IT - Syllabus de Formation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .document {
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Header avec style moderne */
+        .header {
+            background: linear-gradient(135deg, #2c3e7d 0%, #3a4f8f 100%);
+            color: white;
+            padding: 40px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -30px;
+            width: 280px;
+            height: 76px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 166.7 44'%3E%3Cstyle%3E.st0%7Bfill:%23FFFFFF%7D.st1%7Bfill:%23C62385%7D%3C/style%3E%3Cg%3E%3Cpath class='st0' d='M90.7,37.6c-2-0.8-3.3-2.7-3.3-4.8v-2.1l0,0V0h-6.1v30.6l0,0v2.1c0,6.2,5,11.2,11.2,11.3h3.3C93.5,42.5,91.7,40.2,90.7,37.6'/%3E%3Cpath class='st0' d='M98.5,32.5c0.3,4.1,3.9,6.4,7.4,6.3c2.5,0.1,4.9-1.2,6.1-3.4h6.3c-1.1,2.6-2.8,4.8-5.1,6.4c-2.1,1.5-4.7,2.3-7.3,2.2c-7.5,0-13.5-6.1-13.5-13.6c0-7.4,6-13.4,13.4-13.5c3.6-0.1,7,1.3,9.5,3.9c3,3.1,4.4,7.4,3.8,11.6L98.5,32.5z M113,27.8c-0.6-3.5-3.7-5.9-7.2-5.8c-4.5,0-7,3.2-7.2,5.8H113z'/%3E%3Cpath class='st0' d='M6.4,32.5c0.3,4.1,3.9,6.4,7.4,6.3c2.5,0.1,4.9-1.2,6.1-3.4h6.3c-1.1,2.6-2.8,4.8-5.1,6.4c-2.1,1.5-4.7,2.3-7.3,2.2C6.3,43.9,0.3,37.8,0.4,30.3C0.5,23,6.4,17,13.7,16.9c3.6-0.1,7,1.3,9.5,3.9c3,3.1,4.4,7.4,3.8,11.6L6.4,32.5z M21,27.8c-0.6-3.5-3.7-5.9-7.2-5.8c-4.5,0-7,3.2-7.2,5.8H21z'/%3E%3Cpath class='st0' d='M64.1,17c-7.3-0.2-13.4,5.5-13.6,12.8c0,0.2,0,0.4,0,0.6v0c0,1.2,0.2,2.3,0.4,3.5h-0.1c-1.2,2.7-3.9,4.5-6.9,4.4c-4.3,0-7.5-3.2-7.5-7.8c0-2.1,0.7-4.1,2.1-5.7c1.4-1.5,3.4-2.3,5.4-2.2c1.4,0,2.7,0.4,3.9,1.1c0.8-1.8,1.9-3.3,3.3-4.6c-2.2-1.4-4.8-2.1-7.5-2.1c-7.5,0.2-13.4,6.4-13.2,13.8c0.2,7.5,6.4,13.4,13.8,13.2c3.7-0.1,7.2-1.7,9.6-4.4c5,5.6,13.6,6.2,19.2,1.2s6.2-13.6,1.2-19.2C71.7,18.6,68,17,64.1,17M64.1,38.2c-4.2,0-7.6-3.4-7.6-7.5c0-0.1,0-0.1,0-0.2v0c0.1-4.2,3.6-7.4,7.8-7.3c4.2,0.1,7.4,3.6,7.3,7.8C71.5,35,68.1,38.2,64.1,38.2'/%3E%3Cpath class='st0' d='M166.7,10h-26v6h10v27.8h6.1V16h10L166.7,10z'/%3E%3Cpath class='st0' d='M136.9,30.5v-1.4l0,0v-8h-6.1v8l0,0v1.4c0,0.1,0,0.1,0,0.2v0.4h0c0.3,7.2,6.3,12.9,13.5,12.9v-6.1C140.2,37.9,136.9,34.6,136.9,30.5'/%3E%3Crect x='130.8' y='10' class='st1' width='6.1' height='7.5'/%3E%3Cpath class='st0' d='M5.3,13.5H0V7.4h5.3c4,0,7.3-3.3,7.3-7.3h6.1C18.7,7.5,12.7,13.5,5.3,13.5'/%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            opacity: 0.7;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .title-section {
+            flex: 1;
+        }
+        
+        .course-code {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #e91e63;
+        }
+        
+        .course-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        
+        .school-info {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 15px;
+        }
+        
+        /* Content sections */
+        .content {
+            padding: 40px 50px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+        }
+        
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: #e91e63;
+            color: white;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-right: 15px;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #2c3e7d;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title-text {
+            flex: 1;
+        }
+        
+        /* Tables */
+        .info-table {
+            width: 100%;
+            margin-bottom: 15px;
+            border-collapse: collapse;
+        }
+        
+        .info-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .info-table td:first-child {
+            font-weight: 600;
+            color: #2c3e7d;
+            width: 30%;
+            background: #f8f9fa;
+        }
+        
+        /* Listes */
+        .content-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .content-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .content-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            background: #e91e63;
+            border-radius: 50%;
+        }
+        
+        /* Competence boxes */
+        .competence-box {
+            background: #f8f9fa;
+            border-left: 4px solid #e91e63;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .competence-box h4 {
+            color: #2c3e7d;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        /* Schedule table */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+        
+        .schedule-table thead {
+            background: #2c3e7d;
+            color: white;
+        }
+        
+        .schedule-table th,
+        .schedule-table td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .schedule-table tbody tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2c3e7d;
+            color: white;
+            padding: 20px 50px;
+            margin-top: 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-text {
+            font-size: 11px;
+            opacity: 0.9;
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                margin: 0;
+                background: white;
+            }
+            
+            .document {
+                box-shadow: none;
+                margin: 0;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+            
+            .header, .footer {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+        
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .course-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="document">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="title-section">
+                    <div class="course-code">M1ARCH</div>
+                    <h1 class="course-title">Architecture des Réseaux avec Cloud et Modèle OSI</h1>
+                    <div class="school-info">
+                        École IT - Année académique 2025-2026<br>
+                        M1 - Unité 1 - Semaine 3 - Formation de 5 jours (35h)
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Content -->
+        <div class="content">
+            <!-- Section 1: Informations générales -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-number">1</span>
+                    <span class="section-title-text">INFORMATIONS GÉNÉRALES</span>
+                </h2>
+                <table class="info-table">
+                    <tr>
+                        <td>Code module</td>
+                        <td>M1ARCH - Architecture des Réseaux avec Cloud et Modèle OSI</td>
+                    </tr>
+                    <tr>
+                        <td>Niveau</td>
+                        <td>Master 1 - Unité 1 - Semaine 3</td>
+                    </tr>
+                    <tr>
+                        <td>Durée</td>
+                        <td>5 jours / 35 heures + modules optionnels (10h)</td>
+                    </tr>
+                    <tr>
+                        <td>Prérequis</td>
+                        <td>Fondamentaux réseaux, TCP/IP, administration système Linux/Windows</td>
+                    </tr>
+                </table>
+            </section>
+            
+            <!-- Section 2: Prérequis détaillés -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-number">2</span>
+                    <span class="section-title-text">PRÉREQUIS DÉTAILLÉS</span>
+                </h2>
+                <div class="competence-box">
+                    <h4>Acquis requis des semaines précédentes du cycle M1</h4>
+                    <p><strong>SEM1 - M1PISC (Piscine DevOps Container) :</strong></p>
+                    <ul class="content-list">
+                        <li>Maîtrise de l'administration système Linux (Ubuntu/CentOS)</li>
+                        <li>Compétences Docker : création, gestion et orchestration de containers</li>
+                        <li>Bases DevOps : intégration continue, pipelines CI/CD</li>
+                        <li>Ligne de commande avancée et scripting Bash</li>
+                        <li>Virtualisation et concepts d'infrastructure as code</li>
+                    </ul>
+                </div>
+                
+                <div class="competence-box">
+                    <h4>SEM2 - M1INTR (Introduction Cybersécurité et E-Reputation + Gestion Incidents)</h4>
+                    <ul class="content-list">
+                        <li>Fondamentaux de la cybersécurité et analyse de risques</li>
+                        <li>Compréhension des menaces réseau et vulnérabilités courantes</li>
+                        <li>Protocoles de sécurité de base (HTTPS, SSH)</li>
+                        <li>Gestion d'incidents et procédures de réponse</li>
+                        <li>Notions de monitoring et détection d'intrusions</li>
+                    </ul>
+                </div>
+                
+                <div class="competence-box">
+                    <h4>Compétences techniques générales requises</h4>
+                    <ul class="content-list">
+                        <li><strong>Réseaux :</strong> Modèle TCP/IP, adressage IPv4/IPv6, subnetting</li>
+                        <li><strong>Système :</strong> Administration Windows Server et Linux</li>
+                        <li><strong>Sécurité :</strong> Concepts de base, pare-feu, authentification</li>
+                        <li><strong>Cloud :</strong> Notions d'infrastructure cloud (IaaS, PaaS, SaaS)</li>
+                        <li><strong>Outils :</strong> Familiarité avec les outils de diagnostic réseau</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Section 3: Profil du formateur -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-number">3</span>
+                    <span class="section-title-text">PROFIL DU FORMATEUR</span>
+                </h2>
+                <ul class="content-list">
+                    <li><strong>Architecture réseau :</strong> Expertise en conception et déploiement d'infrastructures réseau</li>
+                    <li><strong>Cloud computing :</strong> Maîtrise des plateformes AWS, Azure, GCP</li>
+                    <li><strong>Protocoles de routage :</strong> Configuration avancée RIP, OSPF, BGP</li>
+                    <li><strong>VPN et sécurité :</strong> Expertise IPSec, OpenVPN, PKI</li>
+                    <li><strong>Migration cloud :</strong> Expérience architectures hybrides et SD-WAN</li>
+                    <li><strong>Certifications recommandées :</strong> CCNA/CCNP, Azure/AWS Network Specialty</li>
+                </ul>
+            </section>
+            
+            <!-- Section 4: Objectifs -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-number">4</span>
+                    <span class="section-title-text">OBJECTIFS</span>
+                </h2>
+                <div class="competence-box">
+                    <h4>À la fin de ce module, l'étudiant sera capable de :</h4>
+                    <ul class="content-list">
+                        <li>Maîtriser l'architecture du modèle OSI et les protocoles avancés</li>
+                        <li>Configurer et administrer les services réseau (DHCP, DNS, HTTP)</li>
+                        <li>Implémenter des solutions de load balancing et optimisation HTTP</li>
+                        <li>Analyser et sécuriser les communications réseau dans un environnement professionnel</li>
+                        <li>Concevoir des architectures réseau haute disponibilité avec intégration cloud</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Section 5: Programme détaillé -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-number">5</span>
+                    <span class="section-title-text">PROGRAMME DÉTAILLÉ</span>
+                </h2>
+                
+                <h3 style="color: #2c3e7d; margin: 15px 0 10px;">Jour 1 - Fondamentaux et Modèle OSI</h3>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Contenu</th>
+                            <th>Format</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rappels TCP avancés : persistance, pipelining, flow control, congestion control</td>
+                            <td>Cours</td>
+                        </tr>
+                        <tr>
+                            <td>Modèle OSI : couches 1-4 avec analyse approfondie des PDU</td>
+                            <td>Cours + TP</td>
+                        </tr>
+                        <tr>
+                            <td>Configuration et administration serveur DHCP (Windows/Linux)</td>
+                            <td>TP</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 style="color: #2c3e7d; margin: 15px 0 10px;">Jour 2 - Protocole HTTP avancé</h3>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Contenu</th>
+                            <th>Format</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PDU HTTP : GET, POST, PUT, DELETE, HEAD, TRACE - analyse détaillée</td>
+                            <td>Cours + TP</td>
+                        </tr>
+                        <tr>
+                            <td>En-têtes HTTP et codes de status (1xx à 5xx) - implémentation pratique</td>
+                            <td>TP</td>
+                        </tr>
+                        <tr>
+                            <td>Cookies : attributs, options, sécurité et gestion de session</td>
+                            <td>TP</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 style="color: #2c3e7d; margin: 15px 0 10px;">Jour 3 - HTTP avancé et Optimisation</h3>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Contenu</th>
+                            <th>Format</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Authentification HTTP : Basic, Improved Digest, Bearer Token</td>
+                            <td>Cours</td>
+                        </tr>
+                        <tr>
+                            <td>Redirection, hôte virtuel, proxy cache et tunneling HTTP</td>
+                            <td>TP</td>
+                        </tr>
+                        <tr>
+                            <td>QCM d'évaluation intermédiaire</td>
+                            <td>Évaluation</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 style="color: #2c3e7d; margin: 15px 0 10px;">Jour 4 - Load Balancing et Architecture Cloud</h3>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Contenu</th>
+                            <th>Format</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Accélération HTTP, proxy et Web Load Balancing (algorithmes L4/L7)</td>
+                            <td>Cours + TP</td>
+                        </tr>
+                        <tr>
+                            <td>Architecture réseau cloud : VPC, Subnets, Security Groups</td>
+                            <td>TP</td>
+                        </tr>
+                        <tr>
+                            <td>Content Delivery Networks (CDN) et optimisation de performances</td>
+                            <td>Projet</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 style="color: #2c3e7d; margin: 15px 0 10px;">Jour 5 - Sécurité et Projet Final</h3>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Contenu</th>
+                            <th>Format</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sécurité réseau : Firewalls, WAF, DDoS Protection</td>
+                            <td>Cours + TP</td>
+                        </tr>
+                        <tr>
+                            <td>Architectures hybrides et monitoring réseau avancé</td>
+                            <td>TP</td>
+                        </tr>
+                        <tr>
+                            <td>Projet final : architecture réseau haute disponibilité avec load balancing</td>
+                            <td>Projet</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <!-- Section 6: Environnement technique -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-number">6</span>
+                    <span class="section-title-text">ENVIRONNEMENT TECHNIQUE</span>
+                </h2>
+                <ul class="content-list">
+                    <li><strong>Serveurs réseau :</strong> Windows Server, Linux (Ubuntu/CentOS) pour DHCP/DNS</li>
+                    <li><strong>Équipements réseau :</strong> Routeurs Cisco (GNS3/Packet Tracer) pour modules optionnels</li>
+                    <li><strong>Outils réseau :</strong> Wireshark, nmap, traceroute, netstat, curl avancé</li>
+                    <li><strong>Load Balancers :</strong> HAProxy, Nginx, Apache HTTP Server</li>
+                    <li><strong>VPN/Sécurité :</strong> OpenVPN, StrongSwan (IPSec), certificats X.509</li>
+                    <li><strong>Monitoring :</strong> PRTG, Nagios, ou solutions cloud (CloudWatch)</li>
+                    <li><strong>Virtualisation :</strong> VirtualBox/VMware pour labs réseau complexes</li>
+                    <li><strong>Proxy/Cache :</strong> Squid, Varnish pour tests de performance HTTP</li>
+                </ul>
+            </section>
+            
+            <!-- Section 7: Évaluation -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-number">7</span>
+                    <span class="section-title-text">ÉVALUATION</span>
+                </h2>
+                <div class="competence-box">
+                    <h4>QCM Final</h4>
+                    <p><strong>40 questions en ordre aléatoire - 60 minutes</strong></p>
+                    <p>Évaluation des connaissances théoriques (modèle OSI) et pratiques (architecture cloud).</p>
+                </div>
+                
+                <div class="competence-box">
+                    <h4>Projet pratique</h4>
+                    <p><strong>Conception d'architecture réseau cloud</strong></p>
+                    <p>Évaluation de la capacité à concevoir une solution complète intégrant sécurité, performance et scalabilité.</p>
+                </div>
+                
+                <div class="competence-box">
+                    <h4>Évaluation des modules optionnels</h4>
+                    <p><strong>QCM spécialisé (20 questions) - 30 minutes</strong></p>
+                    <p>Évaluation approfondie des protocoles de routage, VPN/IPSec et architectures hybrides pour les étudiants suivant les modules optionnels.</p>
+                </div>
+                
+                <div class="competence-box">
+                    <h4>Critères d'évaluation</h4>
+                    <ul class="content-list">
+                        <li>Maîtrise approfondie du modèle OSI et protocoles TCP/HTTP</li>
+                        <li>Configuration experte des services réseau (DHCP, DNS, proxy)</li>
+                        <li>Implémentation de solutions de load balancing et optimisation</li>
+                        <li>Analyse de trames réseau et diagnostic de performances</li>
+                        <li>Sécurisation des architectures et gestion des authentifications</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Section 8: Ressources -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-number">8</span>
+                    <span class="section-title-text">RESSOURCES</span>
+                </h2>
+                <ul class="content-list">
+                    <li><strong>Documentation Cisco :</strong> cisco.com/c/en/us/support/docs/ip/</li>
+                    <li><strong>RFC IETF :</strong> rfc-editor.org (RFC 2328 - OSPF, RFC 4271 - BGP, RFC 4301 - IPSec)</li>
+                    <li><strong>AWS Networking :</strong> docs.aws.amazon.com/vpc/</li>
+                    <li><strong>Microsoft Azure :</strong> docs.microsoft.com/azure/virtual-network/</li>
+                    <li><strong>OpenVPN Community :</strong> openvpn.net/community-resources/</li>
+                    <li><strong>Cisco Networking Academy :</strong> netacad.com</li>
+                    <li>Supports de cours : schémas d'architecture, labs pratiques et études de cas de migration</li>
+                </ul>
+            </section>
+            
+            <!-- Section 9: Modules optionnels -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-number">9</span>
+                    <span class="section-title-text">MODULES OPTIONNELS AVANCÉS</span>
+                </h2>
+                <div class="competence-box">
+                    <h4>Protocoles de routage avancés</h4>
+                    <p><strong>Module optionnel : 3 heures supplémentaires</strong></p>
+                    <ul class="content-list">
+                        <li><strong>RIP (Routing Information Protocol) :</strong> Configuration, métriques, limitations</li>
+                        <li><strong>OSPF (Open Shortest Path First) :</strong> Areas, LSA, algorithme Dijkstra</li>
+                        <li><strong>BGP (Border Gateway Protocol) :</strong> AS, peering, route policies</li>
+                        <li>Comparaison des protocoles et choix architecturaux</li>
+                    </ul>
+                </div>
+                
+                <div class="competence-box">
+                    <h4>VPN et sécurité réseau avancée</h4>
+                    <p><strong>Module optionnel : 4 heures supplémentaires</strong></p>
+                    <ul class="content-list">
+                        <li><strong>IPSec :</strong> AH, ESP, modes tunnel/transport, IKE</li>
+                        <li><strong>VPN SSL/TLS :</strong> OpenVPN, configuration et déploiement</li>
+                        <li><strong>Site-to-Site vs Remote Access VPN</strong></li>
+                        <li>Authentification et certificats X.509</li>
+                        <li>Performance et optimisation des tunnels VPN</li>
+                    </ul>
+                </div>
+                
+                <div class="competence-box">
+                    <h4>Transition réseaux classiques vers cloud hybride</h4>
+                    <p><strong>Module optionnel : 3 heures supplémentaires</strong></p>
+                    <ul class="content-list">
+                        <li><strong>Migration progressive :</strong> Stratégies lift-and-shift vs cloud-native</li>
+                        <li><strong>Connectivité hybride :</strong> Direct Connect (AWS), ExpressRoute (Azure)</li>
+                        <li><strong>SD-WAN :</strong> Software-Defined WAN pour l'interconnexion cloud</li>
+                        <li><strong>Gestion de la latence</strong> et optimisation inter-sites</li>
+                        <li>Étude de cas : migration d'architecture d'entreprise</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Section 10: Contribution programme M1 -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="section-number">10</span>
+                    <span class="section-title-text">CONTRIBUTION AU PROGRAMME M1</span>
+                </h2>
+                <div class="competence-box">
+                    <h4>Préparation aux modules suivants</h4>
+                    <p>Ce module fournit les bases réseau essentielles pour les spécialisations BigData et CyberSécurité des unités suivantes. Il prépare également aux concepts de qualité de service (M1QUAL) et aux architectures distribuées nécessaires pour les projets DevOps et startup agile du programme.</p>
+                </div>
+                
+                <div class="competence-box">
+                    <h4>Compétences transversales</h4>
+                    <p>Développement de la pensée architecturale, capacité d'analyse systémique des infrastructures IT, et préparation à la gestion de projets techniques complexes dans un environnement cloud moderne.</p>
+                </div>
+                
+                <div class="competence-box">
+                    <h4>Liens avec le programme complet M1</h4>
+                    <ul class="content-list">
+                        <li><strong>M1QUAL (SEM4) :</strong> Les concepts réseau permettront d'aborder la QoS et les KPI réseau</li>
+                        <li><strong>M1MODE (SEM5) :</strong> Architecture réseau comme base pour la modélisation BPMN</li>
+                        <li><strong>M1GESTI (SEM6) :</strong> Gestion de projets d'infrastructure réseau</li>
+                        <li><strong>Spécialisations U2/U3 :</strong> Fondations pour BigData (réseaux distribués) et CyberSec (sécurité réseau)</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <strong>Version 1.0 - Dernière mise à jour :</strong> 09/07/2025
+                </div>
+                <div class="footer-text">
+                    École IT - Document pédagogique Master 1
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
