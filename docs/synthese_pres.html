@@ -1,1619 +1,1883 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Programme Formation Informatique - 5 années</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            --primary-color: #1a1d29;
-            --secondary-color: #e91e63;
-            --accent-color: #f1f5f9;
-            --text-dark: #0f172a;
-            --text-light: #64748b;
-            --tech-color: #06b6d4;
-            --soft-color: #8b5cf6;
-            --project-color: #f59e0b;
-            --success-color: #10b981;
-            --surface: #ffffff;
-            --border-light: #e2e8f0;
-            --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-            --year1-color: #e91e63;
-            --year2-color: #8e24aa;
-            --year3-color: #3949ab;
-            --master-color: #d32f2f;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--text-dark);
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #475569 75%, #64748b 100%);
-            min-height: 100vh;
-            line-height: 1.6;
-            font-size: 15px;
-            font-weight: 400;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            letter-spacing: -0.01em;
-        }
-
-        .custom-header {
-            background: linear-gradient(135deg, #2d3748 0%, #3d4f62 50%, #4a5568 100%);
-            color: white;
-            padding: 4rem 0 6rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .custom-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.03"><circle cx="30" cy="30" r="1"/></g></svg>');
-            opacity: 0.4;
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .header-grid {
-            display: grid;
-            grid-template-columns: 300px 1fr 280px;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-        }
-
-        .logo-container img {
-            width: 220px;
-            height: auto;
-        }
-
-        .hero-content {
-            text-align: center;
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .hero-subtitle {
-            font-size: 1.125rem;
-            opacity: 0.9;
-            font-weight: 400;
-            line-height: 1.7;
-        }
-
-        .certification-badge {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 16px;
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .badge-content {
-            color: white;
-        }
-
-        .certification-text {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .niveau {
-            background: var(--secondary-color);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 0.75rem;
-            box-shadow: var(--shadow-md);
-        }
-
-        .formation-modes {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .mode {
-            background: rgba(255,255,255,0.15);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .container-main {
-            background: var(--surface);
-            box-shadow: var(--shadow-xl);
-            margin: -80px auto 4rem;
-            position: relative;
-            z-index: 10;
-            overflow: hidden;
-        }
-
-        .intro-section {
-            text-align: center;
-            padding: 4rem 3rem;
-            background: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%);
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .intro-title {
-            color: var(--primary-color);
-            font-size: clamp(1.875rem, 3vw, 2.25rem);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.025em;
-        }
-
-        .intro-text {
-            font-size: 1.125rem;
-            color: var(--text-light);
-            max-width: 800px;
-            margin: 0 auto 3rem auto;
-            line-height: 1.7;
-            font-weight: 400;
-        }
-
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            background: var(--surface);
-            padding: 2rem 1.5rem;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-light);
-            transition: all 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.025em;
-        }
-
-        .stat-label {
-            color: var(--text-light);
-            font-size: 0.875rem;
-            font-weight: 500;
-            letter-spacing: 0.025em;
-            text-transform: uppercase;
-        }
-
-        .general-section {
-            background: var(--surface);
-            border-radius: 0;
-            padding: 3rem;
-            margin: 0;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .general-section h2 {
-            font-size: clamp(1.75rem, 3vw, 2.25rem);
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: var(--text-dark);
-            text-align: center;
-        }
-
-        .general-section p {
-            font-size: 1.0625rem;
-            color: var(--text-light);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .philosophy-highlight {
-            background: linear-gradient(135deg, var(--secondary-color) 0%, #d946ef 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .philosophy-highlight h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            color: white;
-        }
-
-        .philosophy-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .philosophy-card {
-            background: linear-gradient(135deg, var(--accent-color) 0%, #ffffff 100%);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow-md);
-            border-left: 4px solid var(--secondary-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .philosophy-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .philosophy-card h4 {
-            color: var(--secondary-color);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .key-numbers {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            padding: 3rem;
-            border-radius: 0;
-            margin: 0;
-            box-shadow: none;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .key-numbers h2 {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .key-numbers p {
-            text-align: center;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-            color: white;
-        }
-
-        .key-numbers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .number-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .big-number {
-            font-size: 3rem;
-            font-weight: 800;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .number-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .novelty-card {
-            background: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow-md);
-            border-left: 4px solid var(--tech-color);
-            margin: 1.5rem 0;
-            transition: transform 0.3s ease;
-        }
-
-        .novelty-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .novelty-card h4 {
-            color: var(--tech-color);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .alert-box {
-            background: linear-gradient(135deg, var(--project-color) 0%, #f97316 100%);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin: 1rem 0;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .alert-icon {
-            font-size: 1.5rem;
-        }
-
-        .diplomas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .diploma-card {
-            background: linear-gradient(135deg, #ffffff 0%, var(--accent-color) 100%);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow-md);
-            border-left: 4px solid var(--tech-color);
-            transition: transform 0.3s ease;
-        }
-
-        .diploma-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .diploma-level {
-            background: var(--tech-color);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        .diploma-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .competences-list {
-            list-style: none;
-            margin: 1rem 0;
-        }
-
-        .competences-list li {
-            padding: 0.3rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .competences-list li::before {
-            content: "✓";
-            color: var(--success-color);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .debouches {
-            background: var(--accent-color);
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1rem;
-        }
-
-        .debouches h5 {
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .market-insights {
-            background: linear-gradient(135deg, #1e293b 0%, var(--primary-color) 100%);
-            color: white;
-            padding: 3rem;
-            border-radius: 0;
-            margin: 0;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .insight-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .insight-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        .insight-stat {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--project-color);
-            display: block;
-        }
-
-        .danger-alert {
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-        }
-
-        .projects-showcase {
-            background: linear-gradient(135deg, var(--soft-color) 0%, #a855f7 100%);
-            color: white;
-            padding: 3rem;
-            border-radius: 0;
-            margin: 0;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .project-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .project-code {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-family: 'Monaco', monospace;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        .year-section {
-            margin: 0;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .year-header {
-            background: var(--surface);
-            color: var(--text-dark);
-            padding: 2rem 3rem;
-            position: relative;
-            border: 2px solid var(--border-light);
-            border-left: 6px solid var(--secondary-color);
-            margin: 2rem 3rem;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .year-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--secondary-color);
-        }
-
-        .year-1 .year-header { border-left-color: var(--year1-color); }
-        .year-1 .year-header::before { background: var(--year1-color); }
-        .year-2 .year-header { border-left-color: var(--year2-color); }
-        .year-2 .year-header::before { background: var(--year2-color); }
-        .year-3 .year-header { border-left-color: var(--year3-color); }
-        .year-3 .year-header::before { background: var(--year3-color); }
-
-        .year-title {
-            font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-            color: var(--primary-color);
-        }
-
-        .year-subtitle {
-            font-size: 1rem;
-            opacity: 0.8;
-            font-weight: 400;
-            color: var(--text-light);
-        }
-
-        .year-content {
-            background: var(--surface);
-            padding: 3rem;
-        }
-
+      :root {
+        --primary-color: #1a1d29;
+        --secondary-color: #e91e63;
+        --accent-color: #f1f5f9;
+        --text-dark: #0f172a;
+        --text-light: #64748b;
+        --tech-color: #06b6d4;
+        --soft-color: #8b5cf6;
+        --project-color: #f59e0b;
+        --success-color: #10b981;
+        --surface: #ffffff;
+        --border-light: #e2e8f0;
+        --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        --year1-color: #e91e63;
+        --year2-color: #8e24aa;
+        --year3-color: #3949ab;
+        --master-color: #d32f2f;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
+        color: var(--text-dark);
+        background: linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #1e293b 25%,
+          #334155 50%,
+          #475569 75%,
+          #64748b 100%
+        );
+        min-height: 100vh;
+        line-height: 1.6;
+        font-size: 15px;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        letter-spacing: -0.01em;
+      }
+
+      .custom-header {
+        background: linear-gradient(
+          135deg,
+          #2d3748 0%,
+          #3d4f62 50%,
+          #4a5568 100%
+        );
+        color: white;
+        padding: 4rem 0 6rem 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .custom-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.03"><circle cx="30" cy="30" r="1"/></g></svg>');
+        opacity: 0.4;
+      }
+
+      .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header-grid {
+        display: grid;
+        grid-template-columns: 300px 1fr 280px;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      .logo-container img {
+        width: 220px;
+        height: auto;
+        background: white;
+        padding: 1.5rem 2rem;
+        border-radius: 16px;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .hero-title {
+        font-size: clamp(2.5rem, 4vw, 3.5rem);
+        font-weight: 700;
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+        background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero-subtitle {
+        font-size: 1.125rem;
+        opacity: 0.9;
+        font-weight: 400;
+        line-height: 1.7;
+      }
+
+      .certification-badge {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        padding: 1.5rem;
+        text-align: center;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .badge-content {
+        color: white;
+      }
+
+      .certification-text {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .niveau {
+        background: var(--secondary-color);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        display: inline-block;
+        margin-top: 0.75rem;
+        box-shadow: var(--shadow-md);
+      }
+
+      .formation-modes {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .mode {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .container-main {
+        background: var(--surface);
+        box-shadow: var(--shadow-xl);
+        margin: -80px auto 4rem;
+        position: relative;
+        z-index: 10;
+        overflow: hidden;
+      }
+
+      .intro-section {
+        text-align: center;
+        padding: 4rem 3rem;
+        background: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%);
+        border-bottom: 1px solid var(--border-light);
+      }
+
+      .intro-title {
+        color: var(--primary-color);
+        font-size: clamp(1.875rem, 3vw, 2.25rem);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.025em;
+      }
+
+      .intro-text {
+        font-size: 1.125rem;
+        color: var(--text-light);
+        max-width: 800px;
+        margin: 0 auto 3rem auto;
+        line-height: 1.7;
+        font-weight: 400;
+      }
+
+      .stats-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .stat-item {
+        background: var(--surface);
+        padding: 2rem 1.5rem;
+        border-radius: 16px;
+        text-align: center;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border-light);
+        transition: all 0.3s ease;
+      }
+
+      .stat-item:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--secondary-color);
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.025em;
+      }
+
+      .stat-label {
+        color: var(--text-light);
+        font-size: 0.875rem;
+        font-weight: 500;
+        letter-spacing: 0.025em;
+        text-transform: uppercase;
+      }
+
+      .general-section {
+        background: var(--surface);
+        border-radius: 0;
+        padding: 3rem;
+        margin: 0;
+        border-bottom: 1px solid var(--border-light);
+      }
+
+      .general-section h2 {
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+        font-weight: 700;
+        margin-bottom: 2rem;
+        color: var(--text-dark);
+        text-align: center;
+      }
+
+      .general-section p {
+        font-size: 1.0625rem;
+        color: var(--text-light);
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+      }
+
+      .philosophy-highlight {
+        background: linear-gradient(
+          135deg,
+          var(--secondary-color) 0%,
+          #d946ef 100%
+        );
+        color: white;
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 2rem 0;
+        text-align: center;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .philosophy-highlight h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        color: white;
+      }
+
+      .philosophy-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+
+      .philosophy-card {
+        background: linear-gradient(
+          135deg,
+          var(--accent-color) 0%,
+          #ffffff 100%
+        );
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: var(--shadow-md);
+        border-left: 4px solid var(--secondary-color);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .philosophy-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .philosophy-card h4 {
+        color: var(--secondary-color);
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .key-numbers {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 100%
+        );
+        color: white;
+        padding: 3rem;
+        border-radius: 0;
+        margin: 0;
+        box-shadow: none;
+        border-bottom: 1px solid var(--border-light);
+      }
+
+      .key-numbers h2 {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        color: white;
+      }
+
+      .key-numbers p {
+        text-align: center;
+        opacity: 0.9;
+        margin-bottom: 2rem;
+        color: white;
+      }
+
+      .key-numbers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .number-item {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .big-number {
+        font-size: 3rem;
+        font-weight: 800;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .number-label {
+        font-size: 0.9rem;
+        opacity: 0.9;
+      }
+
+      .novelty-card {
+        background: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: var(--shadow-md);
+        border-left: 4px solid var(--tech-color);
+        margin: 1.5rem 0;
+        transition: transform 0.3s ease;
+      }
+
+      .novelty-card:hover {
+        transform: translateY(-3px);
+      }
+
+      .novelty-card h4 {
+        color: var(--tech-color);
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .alert-box {
+        background: linear-gradient(
+          135deg,
+          var(--project-color) 0%,
+          #f97316 100%
+        );
+        color: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin: 1rem 0;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .alert-icon {
+        font-size: 1.5rem;
+      }
+
+      .diplomas-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+
+      .diploma-card {
+        background: linear-gradient(
+          135deg,
+          #ffffff 0%,
+          var(--accent-color) 100%
+        );
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: var(--shadow-md);
+        border-left: 4px solid var(--tech-color);
+        transition: transform 0.3s ease;
+      }
+
+      .diploma-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .diploma-level {
+        background: var(--tech-color);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 1rem;
+      }
+
+      .diploma-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      .competences-list {
+        list-style: none;
+        margin: 1rem 0;
+      }
+
+      .competences-list li {
+        padding: 0.3rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+      }
+
+      .competences-list li::before {
+        content: "✓";
+        color: var(--success-color);
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+      }
+
+      .debouches {
+        background: var(--accent-color);
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+      }
+
+      .debouches h5 {
+        color: var(--secondary-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .market-insights {
+        background: linear-gradient(
+          135deg,
+          #1e293b 0%,
+          var(--primary-color) 100%
+        );
+        color: white;
+        padding: 3rem;
+        border-radius: 0;
+        margin: 0;
+        border-bottom: 1px solid var(--border-light);
+      }
+
+      .insight-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .insight-card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+      }
+
+      .insight-stat {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--project-color);
+        display: block;
+      }
+
+      .danger-alert {
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+      }
+
+      .projects-showcase {
+        background: linear-gradient(135deg, var(--soft-color) 0%, #a855f7 100%);
+        color: white;
+        padding: 3rem;
+        border-radius: 0;
+        margin: 0;
+        border-bottom: 1px solid var(--border-light);
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .project-card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .project-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .project-code {
+        background: rgba(0, 0, 0, 0.2);
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-family: "Monaco", monospace;
+        display: inline-block;
+        margin-bottom: 1rem;
+      }
+
+      .year-section {
+        margin: 0;
+        border-bottom: 1px solid var(--border-light);
+      }
+
+      .year-header {
+        background: var(--surface);
+        color: var(--text-dark);
+        padding: 2rem 3rem;
+        position: relative;
+        border: 2px solid var(--border-light);
+        border-left: 6px solid var(--secondary-color);
+        margin: 2rem 3rem;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .year-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 4px;
+        height: 100%;
+        background: var(--secondary-color);
+      }
+
+      .year-1 .year-header {
+        border-left-color: var(--year1-color);
+      }
+      .year-1 .year-header::before {
+        background: var(--year1-color);
+      }
+      .year-2 .year-header {
+        border-left-color: var(--year2-color);
+      }
+      .year-2 .year-header::before {
+        background: var(--year2-color);
+      }
+      .year-3 .year-header {
+        border-left-color: var(--year3-color);
+      }
+      .year-3 .year-header::before {
+        background: var(--year3-color);
+      }
+
+      .year-title {
+        font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.02em;
+        color: var(--primary-color);
+      }
+
+      .year-subtitle {
+        font-size: 1rem;
+        opacity: 0.8;
+        font-weight: 400;
+        color: var(--text-light);
+      }
+
+      .year-content {
+        background: var(--surface);
+        padding: 3rem;
+      }
+
+      .blocks-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .content-block {
+        background: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%);
+        border-radius: 16px;
+        padding: 2rem;
+        border: 1px solid var(--border-light);
+        box-shadow: var(--shadow-sm);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .content-block::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+      }
+
+      .content-block:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .tech-block::before {
+        background: linear-gradient(135deg, var(--tech-color) 0%, #0891b2 100%);
+      }
+      .soft-block::before {
+        background: linear-gradient(135deg, var(--soft-color) 0%, #7c3aed 100%);
+      }
+      .project-block::before {
+        background: linear-gradient(
+          135deg,
+          var(--project-color) 0%,
+          #ea580c 100%
+        );
+      }
+
+      .block-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: var(--text-dark);
+      }
+
+      .block-title span {
+        font-size: 1.5rem;
+      }
+
+      .content-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .content-list li {
+        background: var(--surface);
+        margin: 0.75rem 0;
+        padding: 1rem 1.25rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-light);
+        transition: all 0.2s ease;
+        font-size: 0.9375rem;
+        line-height: 1.6;
+      }
+
+      .tech-block .content-list li:hover {
+        border-color: var(--tech-color);
+        transform: translateX(4px);
+      }
+
+      .soft-block .content-list li:hover {
+        border-color: var(--soft-color);
+        transform: translateX(4px);
+      }
+
+      .project-block .content-list li:hover {
+        border-color: var(--project-color);
+        transform: translateX(4px);
+      }
+
+      .project-highlight {
+        background: linear-gradient(
+          135deg,
+          rgba(245, 158, 11, 0.1) 0%,
+          rgba(245, 158, 11, 0.05) 100%
+        );
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(245, 158, 11, 0.2);
+      }
+
+      .project-highlight p {
+        margin: 0;
+        font-weight: 600;
+        color: var(--project-color);
+        font-size: 0.9375rem;
+      }
+
+      .master-section {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        padding: 4rem 3rem;
+        margin: 0;
+        border-bottom: 1px solid var(--border-light);
+      }
+
+      .master-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .master-title {
+        font-size: clamp(1.875rem, 3vw, 2.25rem);
+        color: var(--primary-color);
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .tronc-commun {
+        background: var(--surface);
+        border-radius: 20px;
+        padding: 2.5rem;
+        margin: 3rem auto;
+        max-width: 700px;
+        text-align: center;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--border-light);
+      }
+
+      .tronc-title {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+      }
+
+      .tronc-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        text-align: left;
+        margin-top: 2rem;
+      }
+
+      .tronc-content > div {
+        padding: 1.5rem;
+        background: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%);
+        border-radius: 12px;
+        border: 1px solid var(--border-light);
+      }
+
+      .tronc-content strong {
+        color: var(--primary-color);
+        font-weight: 600;
+        font-size: 1.0625rem;
+      }
+
+      .tronc-content ul {
+        margin: 1rem 0;
+        padding-left: 1.25rem;
+      }
+
+      .tronc-content li {
+        margin-bottom: 0.5rem;
+        font-size: 0.9375rem;
+      }
+
+      .specializations-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+
+      .specialization-card {
+        border: 1px solid var(--border-light);
+        border-radius: 20px;
+        padding: 2.5rem;
+        text-align: center;
+        box-shadow: var(--shadow-lg);
+        background: var(--surface);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .specialization-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+      }
+
+      .specialization-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .cyber-spec::before {
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+      }
+      .dev-spec::before {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      }
+
+      .spec-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .cyber-spec .spec-title {
+        color: #ef4444;
+      }
+      .dev-spec .spec-title {
+        color: #10b981;
+      }
+
+      .spec-content {
+        text-align: left;
+      }
+
+      .spec-content > p {
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 1.5rem;
+        font-size: 1.0625rem;
+      }
+
+      .spec-section {
+        background: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%);
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin: 1.5rem 0;
+        border: 1px solid var(--border-light);
+      }
+
+      .spec-section h5 {
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-size: 1.0625rem;
+      }
+
+      .spec-section ul {
+        margin: 0;
+        padding-left: 1.25rem;
+      }
+
+      .spec-section li {
+        margin-bottom: 0.5rem;
+        font-size: 0.9375rem;
+      }
+
+      .final-section {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        padding: 4rem 3rem;
+        text-align: center;
+        margin: 0;
+      }
+
+      .final-section h3 {
+        color: var(--primary-color);
+        margin-bottom: 2rem;
+        font-size: 1.75rem;
+        font-weight: 700;
+      }
+
+      .debouches-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+        text-align: left;
+      }
+
+      .debouches-column {
+        background: var(--surface);
+        padding: 2.5rem;
+        border-radius: 16px;
+        border: 1px solid var(--border-light);
+        box-shadow: var(--shadow-md);
+      }
+
+      .debouches-column h4 {
+        color: var(--secondary-color);
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+      }
+
+      .debouches-column ul {
+        padding-left: 1.25rem;
+      }
+
+      .debouches-column li {
+        margin-bottom: 0.75rem;
+        font-size: 0.9375rem;
+      }
+
+      .footer {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          #2d3748 100%
+        );
+        color: white;
+        text-align: center;
+        padding: 3rem;
+        margin: 2rem;
+      }
+
+      .footer h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .footer p {
+        opacity: 0.9;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer em {
+        opacity: 0.7;
+        font-size: 0.9375rem;
+      }
+
+      @media (max-width: 1024px) {
         .blocks-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+          grid-template-columns: 1fr;
         }
-
-        .content-block {
-            background: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%);
-            border-radius: 16px;
-            padding: 2rem;
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .content-block::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-        }
-
-        .content-block:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .tech-block::before { background: linear-gradient(135deg, var(--tech-color) 0%, #0891b2 100%); }
-        .soft-block::before { background: linear-gradient(135deg, var(--soft-color) 0%, #7c3aed 100%); }
-        .project-block::before { background: linear-gradient(135deg, var(--project-color) 0%, #ea580c 100%); }
-
-        .block-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: var(--text-dark);
-        }
-
-        .block-title span {
-            font-size: 1.5rem;
-        }
-
-        .content-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .content-list li {
-            background: var(--surface);
-            margin: 0.75rem 0;
-            padding: 1rem 1.25rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-light);
-            transition: all 0.2s ease;
-            font-size: 0.9375rem;
-            line-height: 1.6;
-        }
-
-        .tech-block .content-list li:hover {
-            border-color: var(--tech-color);
-            transform: translateX(4px);
-        }
-
-        .soft-block .content-list li:hover {
-            border-color: var(--soft-color);
-            transform: translateX(4px);
-        }
-
-        .project-block .content-list li:hover {
-            border-color: var(--project-color);
-            transform: translateX(4px);
-        }
-
-        .project-highlight {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(245, 158, 11, 0.2);
-        }
-
-        .project-highlight p {
-            margin: 0;
-            font-weight: 600;
-            color: var(--project-color);
-            font-size: 0.9375rem;
-        }
-
-        .master-section {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            padding: 4rem 3rem;
-            margin: 0;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .master-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .master-title {
-            font-size: clamp(1.875rem, 3vw, 2.25rem);
-            color: var(--primary-color);
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .tronc-commun {
-            background: var(--surface);
-            border-radius: 20px;
-            padding: 2.5rem;
-            margin: 3rem auto;
-            max-width: 700px;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border-light);
-        }
-
-        .tronc-title {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-        }
-
         .tronc-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            text-align: left;
-            margin-top: 2rem;
+          grid-template-columns: 1fr;
         }
-
-        .tronc-content > div {
-            padding: 1.5rem;
-            background: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%);
-            border-radius: 12px;
-            border: 1px solid var(--border-light);
-        }
-
-        .tronc-content strong {
-            color: var(--primary-color);
-            font-weight: 600;
-            font-size: 1.0625rem;
-        }
-
-        .tronc-content ul {
-            margin: 1rem 0;
-            padding-left: 1.25rem;
-        }
-
-        .tronc-content li {
-            margin-bottom: 0.5rem;
-            font-size: 0.9375rem;
-        }
-
         .specializations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
+          grid-template-columns: 1fr;
         }
-
-        .specialization-card {
-            border: 1px solid var(--border-light);
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-            background: var(--surface);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .specialization-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-        }
-
-        .specialization-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .cyber-spec::before { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); }
-        .dev-spec::before { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
-
-        .spec-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .cyber-spec .spec-title { color: #ef4444; }
-        .dev-spec .spec-title { color: #10b981; }
-
-        .spec-content {
-            text-align: left;
-        }
-
-        .spec-content > p {
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 1.5rem;
-            font-size: 1.0625rem;
-        }
-
-        .spec-section {
-            background: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%);
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin: 1.5rem 0;
-            border: 1px solid var(--border-light);
-        }
-
-        .spec-section h5 {
-            font-weight: 600;
-            margin-bottom: 1rem;
-            font-size: 1.0625rem;
-        }
-
-        .spec-section ul {
-            margin: 0;
-            padding-left: 1.25rem;
-        }
-
-        .spec-section li {
-            margin-bottom: 0.5rem;
-            font-size: 0.9375rem;
-        }
-
-        .final-section {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            padding: 4rem 3rem;
-            text-align: center;
-            margin: 0;
-        }
-
-        .final-section h3 {
-            color: var(--primary-color);
-            margin-bottom: 2rem;
-            font-size: 1.75rem;
-            font-weight: 700;
-        }
-
         .debouches-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-            text-align: left;
+          grid-template-columns: 1fr;
         }
+      }
 
-        .debouches-column {
-            background: var(--surface);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow-md);
+      @media (max-width: 768px) {
+        .header-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
         }
-
-        .debouches-column h4 {
-            color: var(--secondary-color);
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
+        .custom-header {
+          padding: 3rem 0 4rem 0;
         }
-
-        .debouches-column ul {
-            padding-left: 1.25rem;
+        .container {
+          padding: 0 1rem;
         }
-
-        .debouches-column li {
-            margin-bottom: 0.75rem;
-            font-size: 0.9375rem;
+        .stats-container {
+          grid-template-columns: 1fr;
         }
-
-        .footer {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #2d3748 100%);
-            color: white;
-            text-align: center;
-            padding: 3rem;
-            margin: 2rem;
+        .year-header {
+          margin: 2rem 1rem;
         }
-
-        .footer h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .footer p {
-            opacity: 0.9;
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer em {
-            opacity: 0.7;
-            font-size: 0.9375rem;
-        }
-
-        @media (max-width: 1024px) {
-            .blocks-container { grid-template-columns: 1fr; }
-            .tronc-content { grid-template-columns: 1fr; }
-            .specializations-grid { grid-template-columns: 1fr; }
-            .debouches-grid { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 768px) {
-            .header-grid { grid-template-columns: 1fr; text-align: center; }
-            .custom-header { padding: 3rem 0 4rem 0; }
-            .container { padding: 0 1rem; }
-            .stats-container { grid-template-columns: 1fr; }
-            .year-header { margin: 2rem 1rem; }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header class="custom-header">
-        <div class="header-container">
-            <div class="header-grid">
-                <div class="logo-container">
-                    <img src="https://ecole-it.com/wp-content/uploads/logo-ecole-it.svg" alt="École IT">
-                </div>
-                <div class="hero-content">
-                    <h1 class="hero-title">FORMATION CERTIFIANTE NIVEAU MASTER</h1>
-                    <p class="hero-subtitle">Parcours complet de 5 années<br>Du développement au leadership technique</p>
-                </div>
-                <div class="certification-badge">
-                    <div class="badge-content">
-                        <div class="certification-text">
-                            <strong>CERTIFIÉ RNCP</strong><br>
-                            <span class="niveau">Niveau 7</span>
-                        </div>
-                        <div class="formation-modes">
-                            <span class="mode">Alternance</span>
-                            <span class="mode">Formation Continue</span>
-                        </div>
-                    </div>
-                </div>
+      <div class="header-container">
+        <div class="header-grid">
+          <div class="logo-container">
+            <img
+              src="https://ecole-it.com/wp-content/uploads/logo-ecole-it.svg"
+              alt="École IT"
+            />
+          </div>
+          <div class="hero-content">
+            <h1 class="hero-title">FORMATION CERTIFIANTE NIVEAU MASTER</h1>
+            <p class="hero-subtitle">
+              Parcours complet de 5 années<br />Du développement au leadership
+              technique
+            </p>
+          </div>
+          <div class="certification-badge">
+            <div class="badge-content">
+              <div class="certification-text">
+                <strong>CERTIFIÉ RNCP</strong><br />
+                <span class="niveau">Niveau 7</span>
+              </div>
+              <div class="formation-modes">
+                <span class="mode">Alternance</span>
+                <span class="mode">Formation Continue</span>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </header>
 
     <div class="container">
-        <div class="container-main">
-            
-            <div class="intro-section">
-                <h2 class="intro-title">Une formation d'excellence pour les métiers de demain</h2>
-                <p class="intro-text">
-                    Notre programme de 5 années forme des experts polyvalents, capables d'évoluer du développement technique au leadership de projets innovants. Une approche progressive qui allie expertise technique, compétences transversales et expérience concrète en entreprise.
-                </p>
-                
-                <div class="stats-container">
-                    <div class="stat-item">
-                        <div class="stat-number">5</div>
-                        <div class="stat-label">Années de formation</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">15</div>
-                        <div class="stat-label">Unités d'enseignement</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">40+</div>
-                        <div class="stat-label">Technologies enseignées</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Employabilité</div>
-                    </div>
-                </div>
+      <div class="container-main">
+        <div class="intro-section">
+          <h2 class="intro-title">
+            Une formation d'excellence pour les métiers de demain
+          </h2>
+          <p class="intro-text">
+            Notre programme de 5 années forme des experts polyvalents, capables
+            d'évoluer du développement technique au leadership de projets
+            innovants. Une approche progressive qui allie expertise technique,
+            compétences transversales et expérience concrète en entreprise.
+          </p>
+
+          <div class="stats-container">
+            <div class="stat-item">
+              <div class="stat-number">5</div>
+              <div class="stat-label">Années de formation</div>
             </div>
-
-            <section class="market-insights">
-                <h2>Marché de l'Emploi - Opportunités Exceptionnelles</h2>
-                <p style="text-align: center; opacity: 0.9; margin-bottom: 2rem;">Analyse du marché IT européen et français : opportunités massives pour les futurs diplômés École IT</p>
-                
-                <div class="insight-grid">
-                    <div class="insight-card">
-                        <span class="insight-stat">700 000</span>
-                        <h4>Postes IT à pourvoir en Europe</h4>
-                        <p>Mais 70% des candidats ne sont pas prêts. Vous faites partie des 30% qui maîtriseront vraiment.</p>
-                    </div>
-                    
-                    <div class="insight-card">
-                        <span class="insight-stat">3,5M</span>
-                        <h4>Postes Cyber manqueront d'ici 2030</h4>
-                        <p>Pénurie critique = sécurité de l'emploi garantie. 45-60K€ junior, 80K€+ après 5 ans.</p>
-                    </div>
-                    
-                    <div class="insight-card">
-                        <span class="insight-stat">78%</span>
-                        <h4>Entreprises françaises n'utilisent pas le cloud</h4>
-                        <p>Marché cloud européen : 75 milliards € en croissance 10% annuelle. Énorme potentiel !</p>
-                    </div>
-                    
-                    <div class="insight-card">
-                        <span class="insight-stat">2,5 ans</span>
-                        <h4>Durée de vie des compétences techniques</h4>
-                        <p>On vous apprend à apprendre efficacement pour 40 ans de carrière, pas juste le premier emploi.</p>
-                    </div>
-                </div>
-                
-                <div class="danger-alert alert-box" style="margin-top: 2rem;">
-                    <span class="alert-icon">🚨</span>
-                    <div>
-                        <strong>RÉALITÉ DU MARCHÉ :</strong> Même si nous proposons les titres CDA et Admin DevOps, les compétences recherchées par les entreprises sont d'un niveau supérieur. Ces diplômes sont utiles pour votre CV mais le marché attend des compétences niveau Master. C'est pourquoi notre formation vous prépare au-delà de ces certifications basiques.
-                    </div>
-                </div>
-
-                <div class="philosophy-highlight" style="margin-top: 3rem; background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
-                    <h3>🎯 NOTRE ENGAGEMENT ENVERS VOTRE RÉUSSITE</h3>
-                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
-                        <strong>70% des candidats ne sont pas prêts pour le marché IT.</strong><br>
-                        Nous mettons tout en œuvre pour que VOUS fassiez partie des 30% qui réussiront.
-                    </p>
-                    <p style="font-size: 1rem; opacity: 0.95;">
-                        Notre pédagogie active, nos projets concrets, notre écosystème numérique innovant et notre accompagnement personnalisé sont conçus pour maximiser vos chances de succès. Nous ne formons pas des diplômés, nous formons des professionnels prêts à relever les défis du numérique.
-                    </p>
-                    <p style="font-size: 1rem; font-weight: 600; margin-top: 1rem;">
-                        🚀 Votre réussite est notre priorité absolue !
-                    </p>
-                </div>
-            </section>
-
-            <section class="general-section">
-                <h2>Notre Philosophie Pédagogique</h2>
-                <div class="philosophy-highlight">
-                    <h3>"ON NE FORME PAS DES DIPLÔMÉS, ON FORME DES PROFESSIONNELS"</h3>
-                    <p>L'étudiant au cœur du changement - Passez du statut de récepteur passif à acteur de votre formation</p>
-                </div>
-                
-                <p>
-                    Face à un nouveau programme, nous avons écouté vos retours pour créer un apprentissage continu et adapté. Notre approche révolutionnaire place l'étudiant au centre de sa formation avec une pédagogie active et évolutive, mêlant théorie et pratique pour un vrai apprentissage professionnel.
-                </p>
-                
-                <div class="philosophy-grid">
-                    <div class="philosophy-card">
-                        <h4>🎯 Apprentissage Actif et Participatif</h4>
-                        <p>Fini le statut d'étudiant passif ! Vous devenez acteur de votre apprentissage par la pratique, les projets réels et l'implication constante.</p>
-                    </div>
-                    <div class="philosophy-card">
-                        <h4>🎨 Formations en Phase avec le Marché</h4>
-                        <p>Nos contenus évoluent en permanence selon les besoins des entreprises. Préparation concrète aux défis professionnels actuels.</p>
-                    </div>
-                    <div class="philosophy-card">
-                        <h4>⏰ Respect des Rythmes Individuels</h4>
-                        <p>Chaque apprenant est unique. Évaluation formative bienveillante mais exigeante, accompagnement personnalisé vers la réussite.</p>
-                    </div>
-                    <div class="philosophy-card">
-                        <h4>🔄 Écosystème Numérique Innovant</h4>
-                        <p>Moodle + Discord : synergie parfaite entre pédagogie officielle et communication collaborative étudiante.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="key-numbers">
-                <h2>La Formation en Chiffres</h2>
-                <p>Structure standardisée pour garantir l'excellence et la cohérence pédagogique</p>
-                
-                <div class="key-numbers-grid">
-                    <div class="number-item">
-                        <span class="big-number">3</span>
-                        <div class="number-label">Unités d'enseignement<br>par année</div>
-                    </div>
-                    <div class="number-item">
-                        <span class="big-number">2</span>
-                        <div class="number-label">Jours de soft skills<br>par unité</div>
-                    </div>
-                    <div class="number-item">
-                        <span class="big-number">1</span>
-                        <div class="number-label">Rattrapage<br>fin d'année</div>
-                    </div>
-                    <div class="number-item">
-                        <span class="big-number">3 à 5</span>
-                        <div class="number-label">Jours de hackathon<br>pour le projet de fin d'unité</div>
-                    </div>
-                    <div class="number-item">
-                        <span class="big-number">1 QCM</span>
-                        <div class="number-label">par cours</div>
-                    </div>
-                    <div class="number-item">
-                        <span class="big-number">Variété</span>
-                        <div class="number-label">de ressources</div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="general-section">
-                <h2>Les Nouveautés 2025-2026</h2>
-                <p>Chaque innovation répond à un besoin identifié pour améliorer votre expérience d'apprentissage et votre réussite professionnelle.</p>
-                
-                <div class="novelty-card">
-                    <h4>🆕 Nouvelle Infrastructure LMS - Moodle</h4>
-                    <p>Plateforme pédagogique de référence mondiale, suivi personnalisé optimal, intégration complète des cours et évaluations. Séparation claire entre administration et pédagogie pour plus de transparence.</p>
-                    <p><em>✅ Disponible dès mercredi/jeudi prochain</em></p>
-                </div>
-                
-                <div class="novelty-card">
-                    <h4>💬 Discord - Communication Étudiante</h4>
-                    <p>Favorise les projets collaboratifs, échanges entre promotions, entraide technique et développement de votre côté "geek".</p>
-                    <div class="alert-box">
-                        <span class="alert-icon">ℹ️</span>
-                        <span>Plateforme complémentaire (non officielle)</span>
-                    </div>
-                </div>
-                
-                <div class="novelty-card">
-                    <h4>🏃‍♂️ Renforcement Vie Campus & BDE</h4>
-                    <p>Cohésion d'équipe, bien-être étudiant, développement personnel intégré au curriculum. Élections BDE pour animer le campus avec des objectifs définis.</p>
-                    <p><em>Moments sportifs et créneaux dédiés dans le planning</em></p>
-                </div>
-            </section>
-
-            <section class="general-section">
-                <h2>Parcours de Formation et 4 Titres RNCP Disponibles</h2>
-                <p>Quatre titres RNCP reconnus par l'État - Chaque élève pourra en passer deux maximum selon son parcours et ses spécialisations.</p>
-                
-                <div class="diplomas-grid">
-                    <div class="diploma-card">
-                        <div class="diploma-level">Niveau 6 RNCP - B2/B3</div>
-                        <h3 class="diploma-title">1. Concepteur Développeur d'Applications (CDA)</h3>
-                        <p><strong>Spécialisation :</strong> Full-Stack Development</p>
-                        <ul class="competences-list">
-                            <li>Développement web/mobile</li>
-                            <li>Bases de données et UX/UI</li>
-                            <li>Architecture logicielle</li>
-                            <li>Tests et déploiement</li>
-                        </ul>
-                        <div class="debouches">
-                            <h5>Débouchés :</h5>
-                            <p>Développeur Full-Stack, Développeur Mobile, Intégrateur Web</p>
-                        </div>
-                        <p><em>⏰ Inscription avant le 11/12/2025</em></p>
-                    </div>
-
-                    <div class="diploma-card">
-                        <div class="diploma-level">Niveau 6 RNCP - B2/B3</div>
-                        <h3 class="diploma-title">2. Administrateur Système DevOps</h3>
-                        <p><strong>Spécialisation :</strong> Infrastructure & Cloud</p>
-                        <ul class="competences-list">
-                            <li>Cloud, containers, CI/CD</li>
-                            <li>Monitoring et sécurité système</li>
-                            <li>Automatisation Infrastructure as Code</li>
-                            <li>Gestion d'incidents de production</li>
-                        </ul>
-                        <div class="debouches">
-                            <h5>Débouchés :</h5>
-                            <p>Admin Système, Ingénieur DevOps, Architecte Infrastructure</p>
-                        </div>
-                        <p><em>⏰ Inscription avant le 11/12/2025</em></p>
-                    </div>
-
-                    <div class="diploma-card">
-                        <div class="diploma-level">Niveau 7 RNCP - M1/M2</div>
-                        <h3 class="diploma-title">3. Expert en Architecture et Développement Logiciel</h3>
-                        <p><strong>Spécialisation :</strong> IA, Big Data & Architectures Distribuées</p>
-                        <ul class="competences-list">
-                            <li>Machine Learning et MLOps</li>
-                            <li>Big Data et architectures distribuées</li>
-                            <li>Intelligence Artificielle</li>
-                            <li>Leadership technique</li>
-                        </ul>
-                        <div class="debouches">
-                            <h5>Débouchés :</h5>
-                            <p>Data Scientist, ML Engineer, Architecte Data</p>
-                        </div>
-                        <p><em>Note : Mention "IA" sur diplôme École IT</em></p>
-                    </div>
-
-                    <div class="diploma-card">
-                        <div class="diploma-level">Niveau 7 RNCP - M1/M2</div>
-                        <h3 class="diploma-title">4. Expert en Architectures Systèmes, Réseaux et Sécurité</h3>
-                        <p><strong>Spécialisation :</strong> Cybersécurité & Gouvernance</p>
-                        <ul class="competences-list">
-                            <li>Sécurité cloud et forensic</li>
-                            <li>Audit et gouvernance IT</li>
-                            <li>Pentest et cryptographie</li>
-                            <li>Management équipes sécurité</li>
-                        </ul>
-                        <div class="debouches">
-                            <h5>Débouchés :</h5>
-                            <p>RSSI, Consultant Cyber, Architecte Sécurité</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="alert-box">
-                    <span class="alert-icon">⚠️</span>
-                    <span><strong>Important :</strong> Les diplômes CDA et DevOps se passent uniquement en 3ème année (B3). <br> Chaque élève pourra passer 1 titre maximum. </span> <span> <br> Le Master s'obtient sur un cycle de 2 années. <br> Vous avez un délai d'un an pour passer votre master après validation de toutes les unités.</span>
-                </div>
-            </section>
-
-            <section class="projects-showcase">
-                <h2 style="text-align: center; margin-bottom: 2rem;">🚀 Projets Concrets - Développez votre Côté GEEK</h2>
-                <p style="text-align: center; margin-bottom: 2rem;">Technologie libre pour stimuler créativité et innovation. Projets réels tirés du syllabus pour une expérience authentique.</p>
-                
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-code">B1 - 1PRJ2</div>
-                        <h4 class="project-title">Projets d'Innovation Technologique</h4>
-                        <p><strong>Focus :</strong> Apprentissage des fondamentaux par la pratique</p>
-                        <ul class="competences-list">
-                            <li>Projets algorithmiques ludiques</li>
-                            <li>Premières applications interactives</li>
-                            <li>Travail en équipe de 3 étudiants</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-code">B1 - 1PRJ3</div>
-                        <h4 class="project-title">Projet Web Fullstack</h4>
-                        <p><strong>Focus :</strong> Applications web complètes</p>
-                        <ul class="competences-list">
-                            <li>Devis d'artisan avec calculs automatiques</li>
-                            <li>Sauvegarde projets et export PDF</li>
-                            <li>Interface utilisateur professionnelle</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-code">B3 - 3PRJ1</div>
-                        <h4 class="project-title">Hackathon Innovation</h4>
-                        <p><strong>Focus :</strong> Simulation conditions réelles entreprise</p>
-                        <ul class="competences-list">
-                            <li>6 jours de développement intensif</li>
-                            <li>Architectures cloud-native avec Docker</li>
-                            <li>Diagnostics incidents de production</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-code">M1 - M1PISC</div>
-                        <h4 class="project-title">Projets Intensifs</h4>
-                        <p><strong>Focus :</strong> Leadership technique et innovation</p>
-                        <ul class="competences-list">
-                            <li>Semaine entière dédiée (35h)</li>
-                            <li>3 projets au choix parmi 23 propositions</li>
-                            <li>Projets fun et techniquement challengeant</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="alert-box" style="margin-top: 2rem;">
-                    <span class="alert-icon">📅</span>
-                    <span><strong>Dès Février 2026 :</strong> Intensification des spécialisations Master avec plus de tech dans votre track choisi (Data Science ou Cybersécurité)</span>
-                </div>
-            </section>
-            
-            <div class="year-section year-1">
-                <div class="year-header">
-                    <div class="year-title">1ère ANNÉE • FONDAMENTAUX INFORMATIQUES</div>
-                    <div class="year-subtitle">Bases du développement et de la programmation</div>
-                </div>
-                <div class="year-content">
-                    <div class="blocks-container">
-                        <div class="content-block tech-block">
-                            <div class="block-title">
-                                <span>💻</span> Technologies enseignées
-                            </div>
-                            <ul class="content-list">
-                                <li>Algorithmique et structures de données</li>
-                                <li>Python : programmation fondamentale et avancée</li>
-                                <li>Développement web : HTML, CSS, JavaScript</li>
-                                <li>Bases de données relationnelles et SQL</li>
-                                <li>Architecture des ordinateurs</li>
-                                <li>Administration Linux et ligne de commande</li>
-                                <li>Gestion de versions avec Git</li>
-                                <li>Sécurité informatique de base</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-block soft-block">
-                            <div class="block-title">
-                                <span>🎯</span> Soft Skills
-                            </div>
-                            <ul class="content-list">
-                                <li>Utilisation éthique des IA</li>
-                                <li>Expression orale et corporelle</li>
-                                <li>Improvisation et gestion du stress</li>
-                                <li>Création de supports de présentation</li>
-                                <li>Argumentation et débat</li>
-                                <li>Documentation technique</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-block project-block">
-                            <div class="block-title">
-                                <span>🚀</span> Projets
-                            </div>
-                            <div class="project-highlight">
-                                <p>Travail en équipe de 3 étudiants • Présentation devant jury • 5 jours intensifs</p>
-                            </div>
-                            <ul class="content-list">
-                                <li><strong>Sujets de projets proposés :</strong></li>
-                                <li>• Pierre-Papier-Ciseaux avec IA</li>
-                                <li>• Calculatrice scientifique avancée</li>
-                                <li>• Site web portfolio personnel</li>
-                                <li>• Générateur de mots de passe sécurisés</li>
-                                <li>• Jeu de devinettes interactif</li>
-                                <li>• Application de gestion de tâches simple</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div class="stat-item">
+              <div class="stat-number">15</div>
+              <div class="stat-label">Unités d'enseignement</div>
             </div>
-
-            <div class="year-section year-2">
-                <div class="year-header">
-                    <div class="year-title">2ème ANNÉE • CONCEPTEUR DÉVELOPPEUR D'APPLICATIONS</div>
-                    <div class="year-subtitle">Maîtrise du développement moderne et des frameworks</div>
-                </div>
-                <div class="year-content">
-                    <div class="blocks-container">
-                        <div class="content-block tech-block">
-                            <div class="block-title">
-                                <span>💻</span> Technologies enseignées
-                            </div>
-                            <ul class="content-list">
-                                <li>Conception UML et modélisation</li>
-                                <li>Programmation Java orientée objet</li>
-                                <li>Frameworks web modernes (React, Vue.js)</li>
-                                <li>Développement d'API REST</li>
-                                <li>Applications mobiles natives et hybrides</li>
-                                <li>Bases de données avancées (NoSQL)</li>
-                                <li>Tests automatisés et qualité logicielle</li>
-                                <li>Docker et containerisation</li>
-                                <li>Introduction à Kubernetes</li>
-                                <li>DevOps et pipelines CI/CD</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-block soft-block">
-                            <div class="block-title">
-                                <span>🎯</span> Soft Skills
-                            </div>
-                            <ul class="content-list">
-                                <li>Rédaction professionnelle</li>
-                                <li>Techniques de recherche d'emploi</li>
-                                <li>Optimisation LinkedIn et CV</li>
-                                <li>Simulation d'entretiens</li>
-                                <li>Création de contenu digital</li>
-                                <li>Influence et réseaux sociaux</li>
-                                <li>Animation de groupe</li>
-                                <li>Théâtre d'improvisation avancé</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-block project-block">
-                            <div class="block-title">
-                                <span>🚀</span> Projets
-                            </div>
-                            <div class="project-highlight">
-                                <p>Architecture full-stack • Tests et déploiement automatisés • Présentation technique</p>
-                            </div>
-                            <ul class="content-list">
-                                <li><strong>Sujets de projets proposés :</strong></li>
-                                <li>• E-commerce avec paiement intégré</li>
-                                <li>• Système de réservation en ligne</li>
-                                <li>• Application mobile de géolocalisation</li>
-                                <li>• Plateforme collaborative avec chat</li>
-                                <li>• Dashboard d'analytics en temps réel</li>
-                                <li>• API REST pour système de gestion</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div class="stat-item">
+              <div class="stat-number">40+</div>
+              <div class="stat-label">Technologies enseignées</div>
             </div>
-
-            <div class="year-section year-3">
-                <div class="year-header">
-                    <div class="year-title">3ème ANNÉE • ADMINISTRATEUR SYSTÈME DEVOPS</div>
-                    <div class="year-subtitle">Spécialisation en infrastructures et déploiement</div>
-                </div>
-                <div class="year-content">
-                    <div class="blocks-container">
-                        <div class="content-block tech-block">
-                            <div class="block-title">
-                                <span>💻</span> Technologies enseignées
-                            </div>
-                            <ul class="content-list">
-                                <li>Cloud Computing (AWS, Azure, GCP)</li>
-                                <li>Orchestration Kubernetes avancée</li>
-                                <li>Infrastructure as Code (Terraform, Ansible)</li>
-                                <li>Monitoring et observabilité</li>
-                                <li>Sécurité dans le Cloud</li>
-                                <li>Architecture microservices</li>
-                                <li>Pipelines CI/CD complexes</li>
-                                <li>Optimisation des performances</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-block soft-block">
-                            <div class="block-title">
-                                <span>🎯</span> Soft Skills
-                            </div>
-                            <ul class="content-list">
-                                <li>Gestion financière et budgets</li>
-                                <li>Business plan et ROI</li>
-                                <li>Power BI et data storytelling</li>
-                                <li>Présentation de données</li>
-                                <li>Argumentation data-driven</li>
-                                <li>Pitch investisseurs</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-block project-block">
-                            <div class="block-title">
-                                <span>🚀</span> Projets
-                            </div>
-                            <div class="project-highlight">
-                                <p>Hackathon (6 jours) • Applications Solidaires (9 jours) • Déploiement cloud natif • Impact social</p>
-                            </div>
-                            <ul class="content-list">
-                                <li><strong>Sujets de projets proposés :</strong></li>
-                                <li>• Plateforme d'aide aux personnes âgées</li>
-                                <li>• Application de covoiturage écologique</li>
-                                <li>• Système de gestion d'association</li>
-                                <li>• Marketplace locale et durable</li>
-                                <li>• Outil de suivi carbone pour entreprises</li>
-                                <li>• Application d'entraide communautaire</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div class="stat-item">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Employabilité</div>
             </div>
-
-            <div class="master-section year-master">
-                <div class="master-header">
-                    <h2 class="master-title">MASTER • EXPERT EN INGÉNIERIE INFORMATIQUE</h2>
-                    <p style="font-size: 1.1rem; color: var(--text-light);">Leadership technique et spécialisations métier</p>
-                </div>
-
-                <div class="tronc-commun">
-                    <div class="tronc-title">🎯 TRONC COMMUN MASTER</div>
-                    <div class="tronc-content">
-                        <div>
-                            <strong>Management & Leadership</strong>
-                            <ul>
-                                <li>Gestion de projet avancée</li>
-                                <li>Management d'équipes techniques</li>
-                                <li>Architecture de solutions complexes</li>
-                                <li>Gestion d'incidents critiques</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <strong>Expertise Technique</strong>
-                            <ul>
-                                <li>Modélisation BPMN et patterns</li>
-                                <li>Normes qualité et indicateurs</li>
-                                <li>Veille technologique et RGPD</li>
-                                <li>Appels d'offres et urbanisation SI</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="specializations-grid">
-                    <div class="specialization-card cyber-spec">
-                        <div class="spec-title">🔒 M1 CYBERSÉCURITÉ</div>
-                        <div class="spec-content">
-                            <p>Expert Sécurité Offensive</p>
-                            
-                            <div class="spec-section">
-                                <h5 style="color: var(--tech-color);">💻 Matières techniques</h5>
-                                <ul>
-                                    <li>Cryptographie et sécurité réseau</li>
-                                    <li>Pentesting et sécurité offensive</li>
-                                    <li>Sécurité web avancée et audit</li>
-                                    <li>Défense et attaque avancées</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="spec-section">
-                                <h5 style="color: var(--project-color);">🚀 Projets</h5>
-                                <ul>
-                                    <li><strong>Projets Intensifs Sécurité</strong> (1 semaine)</li>
-                                    <li>Audit de sécurité complet d'une PME</li>
-                                    <li>Simulation d'attaque Red Team</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="specialization-card dev-spec">
-                        <div class="spec-title">📊 M1 BIGDATA & IA</div>
-                        <div class="spec-content">
-                            <p>Data Scientist Senior</p>
-                            
-                            <div class="spec-section">
-                                <h5 style="color: var(--tech-color);">💻 Matières techniques</h5>
-                                <ul>
-                                    <li>BigData et écosystèmes distribués</li>
-                                    <li>Machine Learning et IA</li>
-                                    <li>Data Science et visualisation</li>
-                                    <li>Architecture microservices avancée</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="spec-section">
-                                <h5 style="color: var(--project-color);">🚀 Projets</h5>
-                                <ul>
-                                    <li><strong>Pipeline complète d'analyse BigData</strong></li>
-                                    <li>Système de recommandation IA</li>
-                                    <li>Analyse prédictive temps réel</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="specializations-grid">
-                    <div class="specialization-card cyber-spec">
-                        <div class="spec-title">🔒 M2 CYBERSÉCURITÉ</div>
-                        <div class="spec-content">
-                            <p>Responsable Sécurité (RSSI)</p>
-                            
-                            <div class="spec-section">
-                                <h5 style="color: var(--tech-color);">💻 Matières techniques</h5>
-                                <ul>
-                                    <li>Pentesting avancé et forensic</li>
-                                    <li>Gouvernance sécurité et risk management</li>
-                                    <li>Conformité et audit sécurité</li>
-                                    <li>Sécurisation infrastructures critiques</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="spec-section">
-                                <h5 style="color: var(--project-color);">🚀 Projets</h5>
-                                <ul>
-                                    <li><strong>Politique sécurité d'entreprise (PSSI)</strong></li>
-                                    <li><strong>Plan de continuité d'activité</strong></li>
-                                    <li><strong>Mémoire professionnel RSSI</strong></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="specialization-card dev-spec">
-                        <div class="spec-title">📊 M2 BIGDATA & IA</div>
-                        <div class="spec-content">
-                            <p>Architecte Data Senior</p>
-                            
-                            <div class="spec-section">
-                                <h5 style="color: var(--tech-color);">💻 Matières techniques</h5>
-                                <ul>
-                                    <li>BigData avancé et Machine Learning</li>
-                                    <li>Architecture data distribuée</li>
-                                    <li>Intelligence artificielle appliquée</li>
-                                    <li>Data Engineering à grande échelle</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="spec-section">
-                                <h5 style="color: var(--project-color);">🚀 Projets</h5>
-                                <ul>
-                                    <li><strong>Plateforme IA d'entreprise</strong></li>
-                                    <li><strong>Architecture Data Lake complexe</strong></li>
-                                    <li><strong>Mémoire professionnel Data Architect</strong></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="final-section">
-                <h3>Débouchés professionnels</h3>
-                <div class="debouches-grid">
-                    <div class="debouches-column">
-                        <h4>Après Master (M1/M2)</h4>
-                        <ul>
-                            <li>Expert Cybersécurité / Pentester Senior</li>
-                            <li>Architecte Technique Senior</li>
-                            <li>Lead Data Scientist / Architecte Data</li>
-                            <li>Consultant Expert / Tech Lead</li>
-                            <li>Responsable Équipe Technique</li>
-                            <li>Architecte Cloud / DevOps Senior</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer">
-                <h3>École IT - Formation d'Excellence</h3>
-                <p>Partenaire de votre transformation digitale • Formation en alternance et continue</p>
-                <p><em>Année académique 2025-2026</em></p>
-            </div>
+          </div>
         </div>
+
+        <section class="market-insights">
+          <h2>Marché de l'Emploi - Opportunités Exceptionnelles</h2>
+          <p style="text-align: center; opacity: 0.9; margin-bottom: 2rem">
+            Analyse du marché IT européen et français : opportunités massives
+            pour les futurs diplômés École IT
+          </p>
+
+          <div class="insight-grid">
+            <div class="insight-card">
+              <span class="insight-stat">700 000</span>
+              <h4>Postes IT à pourvoir en Europe</h4>
+              <p>
+                Mais 70% des candidats ne sont pas prêts. Vous faites partie des
+                30% qui maîtriseront vraiment.
+              </p>
+            </div>
+
+            <div class="insight-card">
+              <span class="insight-stat">3,5M</span>
+              <h4>Postes Cyber manqueront d'ici 2030</h4>
+              <p>
+                Pénurie critique = sécurité de l'emploi garantie. 45-60K€
+                junior, 80K€+ après 5 ans.
+              </p>
+            </div>
+
+            <div class="insight-card">
+              <span class="insight-stat">78%</span>
+              <h4>Entreprises françaises n'utilisent pas le cloud</h4>
+              <p>
+                Marché cloud européen : 75 milliards € en croissance 10%
+                annuelle. Énorme potentiel !
+              </p>
+            </div>
+
+            <div class="insight-card">
+              <span class="insight-stat">2,5 ans</span>
+              <h4>Durée de vie des compétences techniques</h4>
+              <p>
+                On vous apprend à apprendre efficacement pour 40 ans de
+                carrière, pas juste le premier emploi.
+              </p>
+            </div>
+          </div>
+
+          <div class="danger-alert alert-box" style="margin-top: 2rem">
+            <span class="alert-icon">🚨</span>
+            <div>
+              <strong>RÉALITÉ DU MARCHÉ :</strong> Même si nous proposons les
+              titres CDA et Admin DevOps, les compétences recherchées par les
+              entreprises sont d'un niveau supérieur. Ces diplômes sont utiles
+              pour votre CV mais le marché attend des compétences niveau Master.
+              C'est pourquoi notre formation vous prépare au-delà de ces
+              certifications basiques.
+            </div>
+          </div>
+
+          <div
+            class="philosophy-highlight"
+            style="
+              margin-top: 3rem;
+              background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            "
+          >
+            <h3>🎯 NOTRE ENGAGEMENT ENVERS VOTRE RÉUSSITE</h3>
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem">
+              <strong
+                >70% des candidats ne sont pas prêts pour le marché IT.</strong
+              ><br />
+              Nous mettons tout en œuvre pour que VOUS fassiez partie des 30%
+              qui réussiront.
+            </p>
+            <p style="font-size: 1rem; opacity: 0.95">
+              Notre pédagogie active, nos projets concrets, notre écosystème
+              numérique innovant et notre accompagnement personnalisé sont
+              conçus pour maximiser vos chances de succès. Nous ne formons pas
+              des diplômés, nous formons des professionnels prêts à relever les
+              défis du numérique.
+            </p>
+            <p style="font-size: 1rem; font-weight: 600; margin-top: 1rem">
+              🚀 Votre réussite est notre priorité absolue !
+            </p>
+          </div>
+        </section>
+
+        <section class="general-section">
+          <h2>Notre Philosophie Pédagogique</h2>
+          <div class="philosophy-highlight">
+            <h3>"ON NE FORME PAS DES DIPLÔMÉS, ON FORME DES PROFESSIONNELS"</h3>
+            <p>
+              L'étudiant au cœur du changement - Passez du statut de récepteur
+              passif à acteur de votre formation
+            </p>
+          </div>
+
+          <p>
+            Face à un nouveau programme, nous avons écouté vos retours pour
+            créer un apprentissage continu et adapté. Notre approche
+            révolutionnaire place l'étudiant au centre de sa formation avec une
+            pédagogie active et évolutive, mêlant théorie et pratique pour un
+            vrai apprentissage professionnel.
+          </p>
+
+          <div class="philosophy-grid">
+            <div class="philosophy-card">
+              <h4>🎯 Apprentissage Actif et Participatif</h4>
+              <p>
+                Fini le statut d'étudiant passif ! Vous devenez acteur de votre
+                apprentissage par la pratique, les projets réels et
+                l'implication constante.
+              </p>
+            </div>
+            <div class="philosophy-card">
+              <h4>🎨 Formations en Phase avec le Marché</h4>
+              <p>
+                Nos contenus évoluent en permanence selon les besoins des
+                entreprises. Préparation concrète aux défis professionnels
+                actuels.
+              </p>
+            </div>
+            <div class="philosophy-card">
+              <h4>⏰ Respect des Rythmes Individuels</h4>
+              <p>
+                Chaque apprenant est unique. Évaluation formative bienveillante
+                mais exigeante, accompagnement personnalisé vers la réussite.
+              </p>
+            </div>
+            <div class="philosophy-card">
+              <h4>🔄 Écosystème Numérique Innovant</h4>
+              <p>
+                Moodle + Discord : synergie parfaite entre pédagogie officielle
+                et communication collaborative étudiante.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="key-numbers">
+          <h2>La Formation en Chiffres</h2>
+          <p>
+            Structure standardisée pour garantir l'excellence et la cohérence
+            pédagogique
+          </p>
+
+          <div class="key-numbers-grid">
+            <div class="number-item">
+              <span class="big-number">3</span>
+              <div class="number-label">
+                Unités d'enseignement<br />par année
+              </div>
+            </div>
+            <div class="number-item">
+              <span class="big-number">2</span>
+              <div class="number-label">
+                Jours de soft skills<br />par unité
+              </div>
+            </div>
+            <div class="number-item">
+              <span class="big-number">1</span>
+              <div class="number-label">Rattrapage<br />fin d'année</div>
+            </div>
+            <div class="number-item">
+              <span class="big-number">3 à 5</span>
+              <div class="number-label">
+                Jours de hackathon<br />pour le projet de fin d'unité
+              </div>
+            </div>
+            <div class="number-item">
+              <span class="big-number">1 QCM</span>
+              <div class="number-label">par cours</div>
+            </div>
+            <div class="number-item">
+              <span class="big-number">Variété</span>
+              <div class="number-label">de ressources</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="general-section">
+          <h2>Les Nouveautés 2025-2026</h2>
+          <p>
+            Chaque innovation répond à un besoin identifié pour améliorer votre
+            expérience d'apprentissage et votre réussite professionnelle.
+          </p>
+
+          <div class="novelty-card">
+            <h4>🆕 Nouvelle Infrastructure LMS - Moodle</h4>
+            <p>
+              Plateforme pédagogique de référence mondiale, suivi personnalisé
+              optimal, intégration complète des cours et évaluations. Séparation
+              claire entre administration et pédagogie pour plus de
+              transparence.
+            </p>
+            <p><em>✅ Disponible dès mercredi/jeudi prochain</em></p>
+          </div>
+
+          <div class="novelty-card">
+            <h4>💬 Discord - Communication Étudiante</h4>
+            <p>
+              Favorise les projets collaboratifs, échanges entre promotions,
+              entraide technique et développement de votre côté "geek".
+            </p>
+            <div class="alert-box">
+              <span class="alert-icon">ℹ️</span>
+              <span>Plateforme complémentaire (non officielle)</span>
+            </div>
+          </div>
+
+          <div class="novelty-card">
+            <h4>🏃‍♂️ Renforcement Vie Campus & BDE</h4>
+            <p>
+              Cohésion d'équipe, bien-être étudiant, développement personnel
+              intégré au curriculum. Élections BDE pour animer le campus avec
+              des objectifs définis.
+            </p>
+            <p><em>Moments sportifs et créneaux dédiés dans le planning</em></p>
+          </div>
+        </section>
+
+        <section class="general-section">
+          <h2>Parcours de Formation et 4 Titres RNCP Disponibles</h2>
+          <p>
+            Quatre titres RNCP reconnus par l'État - Chaque élève pourra en
+            passer deux maximum selon son parcours et ses spécialisations.
+          </p>
+
+          <div class="diplomas-grid">
+            <div class="diploma-card">
+              <div class="diploma-level">Niveau 6 RNCP - B2/B3</div>
+              <h3 class="diploma-title">
+                1. Concepteur Développeur d'Applications (CDA)
+              </h3>
+              <p><strong>Spécialisation :</strong> Full-Stack Development</p>
+              <ul class="competences-list">
+                <li>Développement web/mobile</li>
+                <li>Bases de données et UX/UI</li>
+                <li>Architecture logicielle</li>
+                <li>Tests et déploiement</li>
+              </ul>
+              <div class="debouches">
+                <h5>Débouchés :</h5>
+                <p>
+                  Développeur Full-Stack, Développeur Mobile, Intégrateur Web
+                </p>
+              </div>
+              <p><em>⏰ Inscription avant le 11/12/2025</em></p>
+            </div>
+
+            <div class="diploma-card">
+              <div class="diploma-level">Niveau 6 RNCP - B2/B3</div>
+              <h3 class="diploma-title">2. Administrateur Système DevOps</h3>
+              <p><strong>Spécialisation :</strong> Infrastructure & Cloud</p>
+              <ul class="competences-list">
+                <li>Cloud, containers, CI/CD</li>
+                <li>Monitoring et sécurité système</li>
+                <li>Automatisation Infrastructure as Code</li>
+                <li>Gestion d'incidents de production</li>
+              </ul>
+              <div class="debouches">
+                <h5>Débouchés :</h5>
+                <p>
+                  Admin Système, Ingénieur DevOps, Architecte Infrastructure
+                </p>
+              </div>
+              <p><em>⏰ Inscription avant le 11/12/2025</em></p>
+            </div>
+
+            <div class="diploma-card">
+              <div class="diploma-level">Niveau 7 RNCP - M1/M2</div>
+              <h3 class="diploma-title">
+                3. Expert en Architecture et Développement Logiciel
+              </h3>
+              <p>
+                <strong>Spécialisation :</strong> IA, Big Data & Architectures
+                Distribuées
+              </p>
+              <ul class="competences-list">
+                <li>Machine Learning et MLOps</li>
+                <li>Big Data et architectures distribuées</li>
+                <li>Intelligence Artificielle</li>
+                <li>Leadership technique</li>
+              </ul>
+              <div class="debouches">
+                <h5>Débouchés :</h5>
+                <p>Data Scientist, ML Engineer, Architecte Data</p>
+              </div>
+              <p><em>Note : Mention "IA" sur diplôme École IT</em></p>
+            </div>
+
+            <div class="diploma-card">
+              <div class="diploma-level">Niveau 7 RNCP - M1/M2</div>
+              <h3 class="diploma-title">
+                4. Expert en Architectures Systèmes, Réseaux et Sécurité
+              </h3>
+              <p>
+                <strong>Spécialisation :</strong> Cybersécurité & Gouvernance
+              </p>
+              <ul class="competences-list">
+                <li>Sécurité cloud et forensic</li>
+                <li>Audit et gouvernance IT</li>
+                <li>Pentest et cryptographie</li>
+                <li>Management équipes sécurité</li>
+              </ul>
+              <div class="debouches">
+                <h5>Débouchés :</h5>
+                <p>RSSI, Consultant Cyber, Architecte Sécurité</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert-box">
+            <span class="alert-icon">⚠️</span>
+            <span
+              ><strong>Important :</strong> Les diplômes CDA et DevOps se
+              passent uniquement en 3ème année (B3). <br />
+              Chaque élève pourra passer 1 titre maximum.
+            </span>
+            <span>
+              <br />
+              Le Master s'obtient sur un cycle de 2 années. <br />
+              Vous avez un délai d'un an pour passer votre master après
+              validation de toutes les unités.</span
+            >
+          </div>
+        </section>
+
+        <section class="projects-showcase">
+          <h2 style="text-align: center; margin-bottom: 2rem">
+            🚀 Projets Concrets - Développez votre Côté GEEK
+          </h2>
+          <p style="text-align: center; margin-bottom: 2rem">
+            Technologie libre pour stimuler créativité et innovation. Projets
+            réels tirés du syllabus pour une expérience authentique.
+          </p>
+
+          <div class="projects-grid">
+            <div class="project-card">
+              <div class="project-code">B1 - 1PRJ2</div>
+              <h4 class="project-title">Projets d'Innovation Technologique</h4>
+              <p>
+                <strong>Focus :</strong> Apprentissage des fondamentaux par la
+                pratique
+              </p>
+              <ul class="competences-list">
+                <li>Projets algorithmiques ludiques</li>
+                <li>Premières applications interactives</li>
+                <li>Travail en équipe de 3 étudiants</li>
+              </ul>
+            </div>
+
+            <div class="project-card">
+              <div class="project-code">B1 - 1PRJ3</div>
+              <h4 class="project-title">Projet Web Fullstack</h4>
+              <p><strong>Focus :</strong> Applications web complètes</p>
+              <ul class="competences-list">
+                <li>Devis d'artisan avec calculs automatiques</li>
+                <li>Sauvegarde projets et export PDF</li>
+                <li>Interface utilisateur professionnelle</li>
+              </ul>
+            </div>
+
+            <div class="project-card">
+              <div class="project-code">B3 - 3PRJ1</div>
+              <h4 class="project-title">Hackathon Innovation</h4>
+              <p>
+                <strong>Focus :</strong> Simulation conditions réelles
+                entreprise
+              </p>
+              <ul class="competences-list">
+                <li>6 jours de développement intensif</li>
+                <li>Architectures cloud-native avec Docker</li>
+                <li>Diagnostics incidents de production</li>
+              </ul>
+            </div>
+
+            <div class="project-card">
+              <div class="project-code">M1 - M1PISC</div>
+              <h4 class="project-title">Projets Intensifs</h4>
+              <p><strong>Focus :</strong> Leadership technique et innovation</p>
+              <ul class="competences-list">
+                <li>Semaine entière dédiée (35h)</li>
+                <li>3 projets au choix parmi 23 propositions</li>
+                <li>Projets fun et techniquement challengeant</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="alert-box" style="margin-top: 2rem">
+            <span class="alert-icon">📅</span>
+            <span
+              ><strong>Dès Février 2026 :</strong> Intensification des
+              spécialisations Master avec plus de tech dans votre track choisi
+              (Data Science ou Cybersécurité)</span
+            >
+          </div>
+        </section>
+
+        <div class="year-section year-1">
+          <div class="year-header">
+            <div class="year-title">
+              1ère ANNÉE • FONDAMENTAUX INFORMATIQUES
+            </div>
+            <div class="year-subtitle">
+              Bases du développement et de la programmation
+            </div>
+          </div>
+          <div class="year-content">
+            <div class="blocks-container">
+              <div class="content-block tech-block">
+                <div class="block-title">
+                  <span>💻</span> Technologies enseignées
+                </div>
+                <ul class="content-list">
+                  <li>Algorithmique et structures de données</li>
+                  <li>Python : programmation fondamentale et avancée</li>
+                  <li>Développement web : HTML, CSS, JavaScript</li>
+                  <li>Bases de données relationnelles et SQL</li>
+                  <li>Architecture des ordinateurs</li>
+                  <li>Administration Linux et ligne de commande</li>
+                  <li>Gestion de versions avec Git</li>
+                  <li>Sécurité informatique de base</li>
+                </ul>
+              </div>
+
+              <div class="content-block soft-block">
+                <div class="block-title"><span>🎯</span> Soft Skills</div>
+                <ul class="content-list">
+                  <li>Utilisation éthique des IA</li>
+                  <li>Expression orale et corporelle</li>
+                  <li>Improvisation et gestion du stress</li>
+                  <li>Création de supports de présentation</li>
+                  <li>Argumentation et débat</li>
+                  <li>Documentation technique</li>
+                </ul>
+              </div>
+
+              <div class="content-block project-block">
+                <div class="block-title"><span>🚀</span> Projets</div>
+                <div class="project-highlight">
+                  <p>
+                    Travail en équipe de 3 étudiants • Présentation devant jury
+                    • 5 jours intensifs
+                  </p>
+                </div>
+                <ul class="content-list">
+                  <li><strong>Sujets de projets proposés :</strong></li>
+                  <li>• Pierre-Papier-Ciseaux avec IA</li>
+                  <li>• Calculatrice scientifique avancée</li>
+                  <li>• Site web portfolio personnel</li>
+                  <li>• Générateur de mots de passe sécurisés</li>
+                  <li>• Jeu de devinettes interactif</li>
+                  <li>• Application de gestion de tâches simple</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="year-section year-2">
+          <div class="year-header">
+            <div class="year-title">
+              2ème ANNÉE • CONCEPTEUR DÉVELOPPEUR D'APPLICATIONS
+            </div>
+            <div class="year-subtitle">
+              Maîtrise du développement moderne et des frameworks
+            </div>
+          </div>
+          <div class="year-content">
+            <div class="blocks-container">
+              <div class="content-block tech-block">
+                <div class="block-title">
+                  <span>💻</span> Technologies enseignées
+                </div>
+                <ul class="content-list">
+                  <li>Conception UML et modélisation</li>
+                  <li>Programmation Java orientée objet</li>
+                  <li>Frameworks web modernes (React, Vue.js)</li>
+                  <li>Développement d'API REST</li>
+                  <li>Applications mobiles natives et hybrides</li>
+                  <li>Bases de données avancées (NoSQL)</li>
+                  <li>Tests automatisés et qualité logicielle</li>
+                  <li>Docker et containerisation</li>
+                  <li>Introduction à Kubernetes</li>
+                  <li>DevOps et pipelines CI/CD</li>
+                </ul>
+              </div>
+
+              <div class="content-block soft-block">
+                <div class="block-title"><span>🎯</span> Soft Skills</div>
+                <ul class="content-list">
+                  <li>Rédaction professionnelle</li>
+                  <li>Techniques de recherche d'emploi</li>
+                  <li>Optimisation LinkedIn et CV</li>
+                  <li>Simulation d'entretiens</li>
+                  <li>Création de contenu digital</li>
+                  <li>Influence et réseaux sociaux</li>
+                  <li>Animation de groupe</li>
+                  <li>Théâtre d'improvisation avancé</li>
+                </ul>
+              </div>
+
+              <div class="content-block project-block">
+                <div class="block-title"><span>🚀</span> Projets</div>
+                <div class="project-highlight">
+                  <p>
+                    Architecture full-stack • Tests et déploiement automatisés •
+                    Présentation technique
+                  </p>
+                </div>
+                <ul class="content-list">
+                  <li><strong>Sujets de projets proposés :</strong></li>
+                  <li>• E-commerce avec paiement intégré</li>
+                  <li>• Système de réservation en ligne</li>
+                  <li>• Application mobile de géolocalisation</li>
+                  <li>• Plateforme collaborative avec chat</li>
+                  <li>• Dashboard d'analytics en temps réel</li>
+                  <li>• API REST pour système de gestion</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="year-section year-3">
+          <div class="year-header">
+            <div class="year-title">
+              3ème ANNÉE • ADMINISTRATEUR SYSTÈME DEVOPS
+            </div>
+            <div class="year-subtitle">
+              Spécialisation en infrastructures et déploiement
+            </div>
+          </div>
+          <div class="year-content">
+            <div class="blocks-container">
+              <div class="content-block tech-block">
+                <div class="block-title">
+                  <span>💻</span> Technologies enseignées
+                </div>
+                <ul class="content-list">
+                  <li>Cloud Computing (AWS, Azure, GCP)</li>
+                  <li>Orchestration Kubernetes avancée</li>
+                  <li>Infrastructure as Code (Terraform, Ansible)</li>
+                  <li>Monitoring et observabilité</li>
+                  <li>Sécurité dans le Cloud</li>
+                  <li>Architecture microservices</li>
+                  <li>Pipelines CI/CD complexes</li>
+                  <li>Optimisation des performances</li>
+                </ul>
+              </div>
+
+              <div class="content-block soft-block">
+                <div class="block-title"><span>🎯</span> Soft Skills</div>
+                <ul class="content-list">
+                  <li>Gestion financière et budgets</li>
+                  <li>Business plan et ROI</li>
+                  <li>Power BI et data storytelling</li>
+                  <li>Présentation de données</li>
+                  <li>Argumentation data-driven</li>
+                  <li>Pitch investisseurs</li>
+                </ul>
+              </div>
+
+              <div class="content-block project-block">
+                <div class="block-title"><span>🚀</span> Projets</div>
+                <div class="project-highlight">
+                  <p>
+                    Hackathon (6 jours) • Applications Solidaires (9 jours) •
+                    Déploiement cloud natif • Impact social
+                  </p>
+                </div>
+                <ul class="content-list">
+                  <li><strong>Sujets de projets proposés :</strong></li>
+                  <li>• Plateforme d'aide aux personnes âgées</li>
+                  <li>• Application de covoiturage écologique</li>
+                  <li>• Système de gestion d'association</li>
+                  <li>• Marketplace locale et durable</li>
+                  <li>• Outil de suivi carbone pour entreprises</li>
+                  <li>• Application d'entraide communautaire</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="master-section year-master">
+          <div class="master-header">
+            <h2 class="master-title">
+              MASTER • EXPERT EN INGÉNIERIE INFORMATIQUE
+            </h2>
+            <p style="font-size: 1.1rem; color: var(--text-light)">
+              Leadership technique et spécialisations métier
+            </p>
+          </div>
+
+          <div class="tronc-commun">
+            <div class="tronc-title">🎯 TRONC COMMUN MASTER</div>
+            <div class="tronc-content">
+              <div>
+                <strong>Management & Leadership</strong>
+                <ul>
+                  <li>Gestion de projet avancée</li>
+                  <li>Management d'équipes techniques</li>
+                  <li>Architecture de solutions complexes</li>
+                  <li>Gestion d'incidents critiques</li>
+                </ul>
+              </div>
+              <div>
+                <strong>Expertise Technique</strong>
+                <ul>
+                  <li>Modélisation BPMN et patterns</li>
+                  <li>Normes qualité et indicateurs</li>
+                  <li>Veille technologique et RGPD</li>
+                  <li>Appels d'offres et urbanisation SI</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="specializations-grid">
+            <div class="specialization-card cyber-spec">
+              <div class="spec-title">🔒 M1 CYBERSÉCURITÉ</div>
+              <div class="spec-content">
+                <p>Expert Sécurité Offensive</p>
+
+                <div class="spec-section">
+                  <h5 style="color: var(--tech-color)">
+                    💻 Matières techniques
+                  </h5>
+                  <ul>
+                    <li>Cryptographie et sécurité réseau</li>
+                    <li>Pentesting et sécurité offensive</li>
+                    <li>Sécurité web avancée et audit</li>
+                    <li>Défense et attaque avancées</li>
+                  </ul>
+                </div>
+
+                <div class="spec-section">
+                  <h5 style="color: var(--project-color)">🚀 Projets</h5>
+                  <ul>
+                    <li>
+                      <strong>Projets Intensifs Sécurité</strong> (1 semaine)
+                    </li>
+                    <li>Audit de sécurité complet d'une PME</li>
+                    <li>Simulation d'attaque Red Team</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="specialization-card dev-spec">
+              <div class="spec-title">📊 M1 BIGDATA & IA</div>
+              <div class="spec-content">
+                <p>Data Scientist Senior</p>
+
+                <div class="spec-section">
+                  <h5 style="color: var(--tech-color)">
+                    💻 Matières techniques
+                  </h5>
+                  <ul>
+                    <li>BigData et écosystèmes distribués</li>
+                    <li>Machine Learning et IA</li>
+                    <li>Data Science et visualisation</li>
+                    <li>Architecture microservices avancée</li>
+                  </ul>
+                </div>
+
+                <div class="spec-section">
+                  <h5 style="color: var(--project-color)">🚀 Projets</h5>
+                  <ul>
+                    <li>
+                      <strong>Pipeline complète d'analyse BigData</strong>
+                    </li>
+                    <li>Système de recommandation IA</li>
+                    <li>Analyse prédictive temps réel</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="specializations-grid">
+            <div class="specialization-card cyber-spec">
+              <div class="spec-title">🔒 M2 CYBERSÉCURITÉ</div>
+              <div class="spec-content">
+                <p>Responsable Sécurité (RSSI)</p>
+
+                <div class="spec-section">
+                  <h5 style="color: var(--tech-color)">
+                    💻 Matières techniques
+                  </h5>
+                  <ul>
+                    <li>Pentesting avancé et forensic</li>
+                    <li>Gouvernance sécurité et risk management</li>
+                    <li>Conformité et audit sécurité</li>
+                    <li>Sécurisation infrastructures critiques</li>
+                  </ul>
+                </div>
+
+                <div class="spec-section">
+                  <h5 style="color: var(--project-color)">🚀 Projets</h5>
+                  <ul>
+                    <li>
+                      <strong>Politique sécurité d'entreprise (PSSI)</strong>
+                    </li>
+                    <li><strong>Plan de continuité d'activité</strong></li>
+                    <li><strong>Mémoire professionnel RSSI</strong></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="specialization-card dev-spec">
+              <div class="spec-title">📊 M2 BIGDATA & IA</div>
+              <div class="spec-content">
+                <p>Architecte Data Senior</p>
+
+                <div class="spec-section">
+                  <h5 style="color: var(--tech-color)">
+                    💻 Matières techniques
+                  </h5>
+                  <ul>
+                    <li>BigData avancé et Machine Learning</li>
+                    <li>Architecture data distribuée</li>
+                    <li>Intelligence artificielle appliquée</li>
+                    <li>Data Engineering à grande échelle</li>
+                  </ul>
+                </div>
+
+                <div class="spec-section">
+                  <h5 style="color: var(--project-color)">🚀 Projets</h5>
+                  <ul>
+                    <li><strong>Plateforme IA d'entreprise</strong></li>
+                    <li><strong>Architecture Data Lake complexe</strong></li>
+                    <li>
+                      <strong>Mémoire professionnel Data Architect</strong>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="final-section">
+          <h3>Débouchés professionnels</h3>
+          <div class="debouches-grid">
+            <div class="debouches-column">
+              <h4>Après Master (M1/M2)</h4>
+              <ul>
+                <li>Expert Cybersécurité / Pentester Senior</li>
+                <li>Architecte Technique Senior</li>
+                <li>Lead Data Scientist / Architecte Data</li>
+                <li>Consultant Expert / Tech Lead</li>
+                <li>Responsable Équipe Technique</li>
+                <li>Architecte Cloud / DevOps Senior</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+          <h3>École IT - Formation d'Excellence</h3>
+          <p>
+            Partenaire de votre transformation digitale • Formation en
+            alternance et continue
+          </p>
+          <p><em>Année académique 2025-2026</em></p>
+        </div>
+      </div>
     </div>
 
     <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
         });
+      });
 
-        document.querySelectorAll('.year-section, .master-section').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s, transform 0.6s';
-            observer.observe(el);
+      document
+        .querySelectorAll(".year-section, .master-section")
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(30px)";
+          el.style.transition = "opacity 0.6s, transform 0.6s";
+          observer.observe(el);
         });
     </script>
-
-</body>
+  </body>
 </html>
